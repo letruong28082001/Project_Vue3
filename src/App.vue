@@ -1,10 +1,19 @@
 <template lang="">
   <div class="container">
-    <h1>hello</h1>
+    <NavPage />
+    <router-view />
   </div>
 </template>
-<script setup></script>
-<style lang="scss">
+<script>
+import NavPage from "../src/views/nav/NavPage.vue";
+export default {
+  name: "App",
+  components: {
+    NavPage,
+  },
+};
+</script>
+<style lang="scss" scoped>
 .container {
   display: flex;
   justify-content: center;
