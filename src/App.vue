@@ -16,7 +16,10 @@ export default {
 .container {
   display: flex;
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(to bottom, #c9a515, #c964e5);
   h1 {
     font-size: 28px;
     font-family: Arial, Helvetica, sans-serif;

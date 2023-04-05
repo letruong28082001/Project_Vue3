@@ -1,0 +1,20 @@
+*{
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+body {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#app {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
