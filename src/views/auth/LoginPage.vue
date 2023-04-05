@@ -1,5 +1,5 @@
 <template>
-  <form class="login-container">
+  <form class="login-container" @submit.prevent="submitForm">
     <h1>Login</h1>
     <div class="input-layout">
       <div class="form__group field">
@@ -10,10 +10,9 @@
           name="email"
           id="email"
           v-model="account.email"
-          required
         />
         <label for="Email" class="form__label">Email</label>
-        <span v-for="error in v$.email.$silentErrors" :key="error.$uid">
+        <span v-for="error in v$.email.$errors" :key="error.$uid">
           {{ error.$message }}
         </span>
       </div>
@@ -27,21 +26,22 @@
           v-model="account.password"
         />
         <label for="password" class="form__label">Password</label>
-        <span v-for="error in v$.password.$silentErrors" :key="error.$uid">
+        <span v-for="error in v$.password.$errors" :key="error.$uid">
           {{ error.$message }}
         </span>
       </div>
     </div>
-    <LoginButton @click="submitForm" type="submit" label="Login" />
+    <p v-if="checkLogin">Email or Password incorrect, Please enter again!</p>
+    <LoginButton type="submit" label="Login" />
   </form>
 </template>
 
 <script lang="ts" setup>
-import { computed, reactive } from "vue";
+import { computed, reactive, ref } from "vue";
 import useVuelidate from "@vuelidate/core";
 import { required, minLength, email } from "@vuelidate/validators";
 import axios from "axios";
-
+const checkLogin = ref();
 const account = reactive({
   email: "",
   password: "",
@@ -56,9 +56,10 @@ const rules = computed(() => {
 
 const v$ = useVuelidate(rules, account);
 
-const submitForm = async (e: SubmitEvent) => {
-  e.preventDefault();
+const submitForm = async () => {
   const result = await v$.value.$validate();
+  console.log(result);
+
   if (result) {
     const fetchAccount = async () => {
       axios
@@ -68,10 +69,11 @@ const submitForm = async (e: SubmitEvent) => {
         })
         .then(function (response) {
           console.log(response);
+          checkLogin.value = false;
           alert("Login success ( Status: " + response.data.statusCode + " )");
         })
         .catch(function () {
-          alert("Email or Password incorrect, Please enter again!");
+          checkLogin.value = true;
         });
     };
     fetchAccount();
@@ -98,6 +100,10 @@ const submitForm = async (e: SubmitEvent) => {
     padding: 0;
     margin-bottom: 0;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+
+  p {
+    color: red;
   }
 
   $primary: #0eeddb;
