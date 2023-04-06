@@ -1,6 +1,16 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-
-const routes: Array<RouteRecordRaw> = [];
+import EmployeesList from "../views/employee/employee-list.vue";
+import testPage from "../views/test/testPage.vue";
+const routes: Array<RouteRecordRaw> = [
+  {
+    path: "/",
+    component: EmployeesList,
+  },
+  {
+    path: "/test",
+    component: testPage,
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
