@@ -1,18 +1,9 @@
 <template lang="">
   <div class="container">
-    <NavPage />
-    <router-view />
+    <h1>This is home page!</h1>
   </div>
 </template>
-<script>
-import NavPage from "../src/views/nav/NavPage.vue";
-export default {
-  name: "App",
-  components: {
-    NavPage,
-  },
-};
-</script>
+<script setup lang="ts"></script>
 <style lang="scss" scoped>
 .container {
   display: flex;
