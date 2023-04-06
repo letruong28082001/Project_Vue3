@@ -4,7 +4,6 @@
     <div class="input-layout">
       <div class="form__group field">
         <input
-          type="email"
           class="form__field"
           placeholder="email"
           name="email"
@@ -41,6 +40,8 @@ import { computed, reactive, ref } from "vue";
 import useVuelidate from "@vuelidate/core";
 import { required, minLength, email } from "@vuelidate/validators";
 import axios from "axios";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const checkLogin = ref();
 const account = reactive({
   email: "",
@@ -69,8 +70,11 @@ const submitForm = async () => {
         })
         .then(function (response) {
           console.log(response);
-          checkLogin.value = false;
-          alert("Login success ( Status: " + response.data.statusCode + " )");
+          if (response.status === 200) {
+            localStorage.setItem("token", response.data.response.access_token);
+            router.push("/");
+            checkLogin.value = false;
+          }
         })
         .catch(function () {
           checkLogin.value = true;

@@ -1,16 +1,13 @@
 <template lang="">
   <div class="container">
-    <app-login></app-login>
+    <router-view></router-view>
   </div>
 </template>
-<script>
-import Login from "../src/views/auth/LoginPage.vue";
-export default {
-  name: "App",
-  components: {
-    appLogin: Login,
-  },
-};
+<script setup>
+import LoginPage from "../src/views/auth/LoginPage.vue";
+import { createApp } from "vue";
+const app = createApp({});
+app.component("LoginPage", LoginPage);
 </script>
 <style lang="scss" scoped>
 .container {
