@@ -59,7 +59,6 @@ const v$ = useVuelidate(rules, account);
 
 const submitForm = async () => {
   const result = await v$.value.$validate();
-  console.log(result);
 
   if (result) {
     const fetchAccount = async () => {
@@ -69,7 +68,6 @@ const submitForm = async () => {
           password: account.password,
         })
         .then(function (response) {
-          console.log(response);
           if (response.status === 200) {
             localStorage.setItem("token", response.data.response.access_token);
             router.push("/");
