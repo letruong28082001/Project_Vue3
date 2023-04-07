@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@types/dotenv": "^8.2.0",
+    "bootstrap": "^5.2.3",
+    "bootstrap-vue": "^2.23.1",
     "core-js": "^3.8.3",
     "primeicons": "^6.0.1",
     "primevue": "^3.26.1",
@@ -28,6 +30,7 @@
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
+    "bootstrap-icons": "^1.10.4",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -67,5 +70,9 @@
     "not dead",
     "not ie 11"
   ],
-  "paths": { "@/*": ["src/*"] }
+  "paths": {
+    "@/*": [
+      "src/*"
+    ]
+  }
 }
