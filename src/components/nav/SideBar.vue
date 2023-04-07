@@ -14,7 +14,7 @@
     </div>
 
     <div class="menu">
-      <router-link class="button btn1" to="/employees">
+      <router-link class="button btn1" to="/">
         <span class="material-symbols-outlined">Person</span>
         <span class="text">Thành viên</span>
       </router-link>
