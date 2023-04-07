@@ -99,21 +99,12 @@ const searchValue = ref();
     justify-content: center;
     border-radius: 25px;
   }
-  // .employee {
-  //   width: 200px;
-  //   height: 300px;
-  //   background-color: aliceblue;
-  //   box-shadow: 2px 1px 8px 5px #0096881c;
-  //   img {
-  //     width: 200px;
-  //   }
-  // }
   .employee-list {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     .employee {
-      width: 23.7%;
+      width: 23%;
       background-color: aliceblue;
       box-shadow: 2px 1px 8px 5px rgba(0, 150, 136, 0.1098039216);
       margin: 7px;
