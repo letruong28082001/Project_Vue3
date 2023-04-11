@@ -11,17 +11,6 @@
 import InputSwitch from "primevue/inputswitch";
 import { ref } from "vue";
 const checked = ref();
-// const items: MenuItem[] = [
-//   {
-//     label: "Category A",
-//   },
-//   {
-//     label: "Category B",
-//   },
-//   {
-//     label: "Category C",
-//   },
-// ];
 </script>
 <style lang="scss" scoped>
 #Header {

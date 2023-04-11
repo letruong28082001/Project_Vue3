@@ -31,7 +31,7 @@
       </div>
     </div>
     <p v-if="checkLogin">Email or Password incorrect, Please enter again!</p>
-    <LoginButton type="submit" label="Login" />
+    <Button type="submit" label="Login" />
   </form>
 </template>
 
@@ -41,13 +41,15 @@ import useVuelidate from "@vuelidate/core";
 import { required, minLength, email } from "@vuelidate/validators";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import Button from "primevue/button";
+import https from "@/services/axios";
+import { httpStatus } from "@/services/enumStatus";
 const router = useRouter();
 const checkLogin = ref();
 const account = reactive({
   email: "",
   password: "",
 });
-
 const rules = computed(() => {
   return {
     email: { required, minLength: minLength(10), email },
@@ -63,13 +65,15 @@ const submitForm = async () => {
   if (result) {
     const fetchAccount = async () => {
       axios
-        .post("http://103.18.7.212:1734/api/auth/login", {
+        .post(`${https.httpsLogin.defaults.baseURL}/auth/login`, {
           email: account.email,
           password: account.password,
         })
         .then(function (response) {
-          if (response.status === 200) {
+          if (response.status === httpStatus.OK) {
+            alert("success !!!");
             localStorage.setItem("token", response.data.response.access_token);
+            localStorage.getItem("token");
             router.push("/");
             checkLogin.value = false;
           }
@@ -203,6 +207,7 @@ const submitForm = async () => {
     margin: 0 auto;
     height: 40px;
     border-radius: 15px;
+    margin-top: 20px;
   }
 }
 </style>
