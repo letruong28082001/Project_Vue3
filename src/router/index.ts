@@ -1,9 +1,14 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-const routes: Array<RouteRecordRaw> = [];
+import employeeListVue from "@/views/employee/employee-list.vue";
+const routes: Array<RouteRecordRaw> = [
+  {
+    path: "/Employees",
+    component: employeeListVue,
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
-
 export default router;

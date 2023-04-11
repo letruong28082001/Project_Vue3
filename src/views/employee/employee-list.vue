@@ -3,7 +3,7 @@
     <h1>DA NANG-OUTSOURCES (UIT DEPT)</h1>
     <span class="p-input-icon-left">
       <i class="pi pi-search" />
-      <InputText v-model="searchValue" placeholder="Tìm kiếm..." />
+      <InputText v-model="searchValue" placeholder="Search..." />
     </span>
     <div class="employee-list">
       <div class="employee">
@@ -113,8 +113,8 @@ const searchValue = ref();
         height: 200px;
       }
       .employee-info {
-        margin-top: 30px;
-        padding-bottom: 30px;
+        margin-top: 20px;
+        padding-bottom: 20px;
         p {
           margin: 10px 0;
         }
