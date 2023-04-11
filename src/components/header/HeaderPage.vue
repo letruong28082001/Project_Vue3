@@ -44,7 +44,6 @@ const checked = ref();
   .icon-notification {
     font-size: 30px;
   }
-
   i,
   .p-inputswitch,
   img {
