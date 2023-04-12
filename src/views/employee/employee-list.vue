@@ -71,13 +71,23 @@
         </div>
       </div>
     </div>
+    <div v-for="item in fetchEmployees" :key="item">
+      {{ item }}
+      <h1>abc</h1>
+      <input type="text" />
+    </div>
   </main>
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
 import InputText from "primevue/inputtext";
+// import { getAllEmployee } from "@/services/api/EmployeeAPI";
 
 const searchValue = ref();
+
+const fetchEmployees = async () => {
+  // return await getAllEmployee("users/my-colleagues/page=1/limit=0");
+};
 </script>
 <style lang="scss" scoped>
 .employee-list-page {

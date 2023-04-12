@@ -17,4 +17,4 @@ https.interceptors.request.use(
   }
 );
 
-export default { https };
+export default https;
