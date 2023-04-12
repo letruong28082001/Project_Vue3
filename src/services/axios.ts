@@ -1,12 +1,12 @@
 import axios from "axios";
-const httpsLogin = axios.create({
+const axiosService = axios.create({
   baseURL: process.env.VUE_APP_BASE_URL,
   headers: {
     "Content-type": "application/json",
   },
 });
 
-httpsLogin.interceptors.request.use(
+axiosService.interceptors.request.use(
   function (config) {
     const token = localStorage.getItem("token");
     config.headers.Authorization = "Bearer " + token;
@@ -17,4 +17,4 @@ httpsLogin.interceptors.request.use(
   }
 );
 
-export default { httpsLogin };
+export { axiosService };

@@ -39,10 +39,9 @@
 import { computed, reactive, ref } from "vue";
 import useVuelidate from "@vuelidate/core";
 import { required, minLength, email } from "@vuelidate/validators";
-import axios from "axios";
 import { useRouter } from "vue-router";
 import Button from "primevue/button";
-import https from "@/services/axios";
+import { axiosService } from "@/services/axios";
 import { httpStatus } from "@/services/enumStatus";
 const router = useRouter();
 const checkLogin = ref();
@@ -64,8 +63,8 @@ const submitForm = async () => {
 
   if (result) {
     const fetchAccount = async () => {
-      axios
-        .post(`${https.httpsLogin.defaults.baseURL}/auth/login`, {
+      axiosService
+        .post("/auth/login", {
           email: account.email,
           password: account.password,
         })
