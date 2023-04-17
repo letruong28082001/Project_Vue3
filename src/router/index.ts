@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import employeeListVue from "@/views/employee/employee-list.vue";
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/Employees",
+    path: "/",
     component: employeeListVue,
   },
 ];

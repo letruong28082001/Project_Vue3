@@ -18,27 +18,27 @@
         <span class="material-symbols-outlined">Person</span>
         <span class="text">Employees</span>
       </router-link>
-      <router-link class="button" to="/">
+      <router-link class="button" to="/apartment">
         <span class="material-symbols-outlined"> apartment </span>
         <span class="text">Work unit</span>
       </router-link>
-      <router-link class="button" to="/">
+      <router-link class="button" to="/picture_in_picture_alt">
         <span class="material-symbols-outlined"> picture_in_picture_alt </span>
         <span class="text">Job position</span>
       </router-link>
-      <router-link class="button" to="/">
+      <router-link class="button" to="/group">
         <span class="material-symbols-outlined"> group </span>
         <span class="text">Employees list</span>
       </router-link>
-      <router-link class="button" to="/">
+      <router-link class="button" to="/upload_file">
         <span class="material-symbols-outlined"> upload_file </span>
         <span class="text">Upload employee</span>
       </router-link>
-      <router-link class="button" to="/">
+      <router-link class="button" to="/Home">
         <span class="material-symbols-outlined">Home</span>
         <span class="text">Supplier</span>
       </router-link>
-      <router-link class="button" to="/">
+      <router-link class="button" to="/logout">
         <span class="material-symbols-outlined"> logout </span>
         <span class="text">Logout</span>
       </router-link>

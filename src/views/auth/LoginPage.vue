@@ -41,8 +41,8 @@ import useVuelidate from "@vuelidate/core";
 import { required, minLength, email } from "@vuelidate/validators";
 import { useRouter } from "vue-router";
 import Button from "primevue/button";
-import { axiosService } from "@/services/axios";
-import { httpStatus } from "@/services/enumStatus";
+import { axiosService } from "@/services/axios/axios";
+import { httpStatus } from "@/services/enum/enum-status";
 const router = useRouter();
 const checkLogin = ref();
 const account = reactive({
@@ -59,8 +59,10 @@ const rules = computed(() => {
 const v$ = useVuelidate(rules, account);
 
 const submitForm = async () => {
+  console.log("abc");
   const result = await v$.value.$validate();
-
+  console.log(axiosService.defaults.baseURL);
+  console.log(httpStatus.OK);
   if (result) {
     const fetchAccount = async () => {
       axiosService

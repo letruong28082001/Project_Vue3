@@ -1,9 +1,9 @@
 import { defineStore } from "pinia";
-import http from "@/services/axios/axios";
-export const apiStore = defineStore("API", {
+import { axiosService } from "@/services/axios/axios";
+export const apiStore = defineStore("Employee", {
   actions: {
     getAllEmployee(url: string, page: number, limit: number) {
-      return http.get(`/${url}?page=${page}&limit=${limit}`);
+      return axiosService.get(`/${url}?page=${page}&limit=${limit}`);
     },
   },
 });
