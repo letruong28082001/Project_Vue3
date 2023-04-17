@@ -19,7 +19,7 @@ const checked = ref();
   width: 100% !important;
   box-shadow: 1px 1px 9px #2cefdd6b;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   padding-right: 50px;
   position: fixed;

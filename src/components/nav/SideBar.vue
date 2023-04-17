@@ -16,27 +16,27 @@
     <div class="menu">
       <router-link class="button btn1" to="/">
         <span class="material-symbols-outlined">Person</span>
-        <span class="text">Thành viên</span>
+        <span class="text">Employees</span>
       </router-link>
-      <router-link class="button" to="/">
+      <router-link class="button" to="/work-unit">
         <span class="material-symbols-outlined"> apartment </span>
-        <span class="text">Đơn vị công tác</span>
+        <span class="text">Work unit</span>
       </router-link>
       <router-link class="button" to="/">
         <span class="material-symbols-outlined"> picture_in_picture_alt </span>
-        <span class="text">Vị trí công việc</span>
+        <span class="text">Job position</span>
       </router-link>
       <router-link class="button" to="/">
         <span class="material-symbols-outlined"> group </span>
-        <span class="text">Danh sách nhân viên</span>
+        <span class="text">Employees list</span>
       </router-link>
       <router-link class="button" to="/">
         <span class="material-symbols-outlined"> upload_file </span>
-        <span class="text">Tải lên nhân viên</span>
+        <span class="text">Upload employee</span>
       </router-link>
       <router-link class="button" to="/">
         <span class="material-symbols-outlined">Home</span>
-        <span class="text">Nhà cung cấp</span>
+        <span class="text">Supplier</span>
       </router-link>
       <router-link class="button" to="/">
         <span class="material-symbols-outlined"> logout </span>
@@ -47,11 +47,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-const is_expanded: any = ref(localStorage.getItem("is_expanded") === "true");
+import { Ref, ref } from "vue";
+const is_expanded: Ref<boolean> = ref(
+  localStorage.getItem("is_expanded") === "true"
+);
 const ToggleMenu = () => {
   is_expanded.value = !is_expanded.value;
-  localStorage.setItem("is_expanded", is_expanded.value);
+  localStorage.setItem("is_expanded", JSON.stringify(is_expanded.value));
 };
 </script>
 
