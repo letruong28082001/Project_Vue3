@@ -95,7 +95,7 @@ app.component("HeaderPage", HeaderPage);
 app.component("SidebarPage", SidebarPage);
 
 // const fetchEmployees = async () => {
-//   // return await getAllEmployee("users/my-colleagues/page=1/limit=0");
+//   // return await getAllEmployee("users/my-colleagues", {page: 1, limit: 0});
 // };
 </script>
 <style lang="scss">

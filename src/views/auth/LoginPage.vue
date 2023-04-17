@@ -104,12 +104,12 @@ const submitForm = async () => {
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  width: 40%;
   margin: 0 auto;
   background-color: #fff;
   min-height: 75vh;
   border-radius: 15px;
   width: 35%;
+  min-width: 300px;
 
   h1 {
     margin-top: -25px;
