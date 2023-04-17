@@ -1,38 +1,40 @@
 <template>
-  <form class="login-container" @submit.prevent="submitForm">
-    <h1>Login</h1>
-    <div class="input-layout">
-      <div class="form__group field">
-        <input
-          class="form__field"
-          placeholder="email"
-          name="email"
-          id="email"
-          v-model="account.email"
-        />
-        <label for="Email" class="form__label">Email</label>
-        <span v-for="error in v$.email.$errors" :key="error.$uid">
-          {{ error.$message }}
-        </span>
+  <div class="container-login">
+    <form class="login-container" @submit.prevent="submitForm">
+      <h1>Login</h1>
+      <div class="input-layout">
+        <div class="form__group field">
+          <input
+            class="form__field"
+            placeholder="email"
+            name="email"
+            id="email"
+            v-model="account.email"
+          />
+          <label for="Email" class="form__label">Email</label>
+          <span v-for="error in v$.email.$errors" :key="error.$uid">
+            {{ error.$message }}
+          </span>
+        </div>
+        <div class="form__group field">
+          <input
+            type="password"
+            class="form__field"
+            placeholder="password"
+            name="password"
+            id="password"
+            v-model="account.password"
+          />
+          <label for="password" class="form__label">Password</label>
+          <span v-for="error in v$.password.$errors" :key="error.$uid">
+            {{ error.$message }}
+          </span>
+        </div>
       </div>
-      <div class="form__group field">
-        <input
-          type="password"
-          class="form__field"
-          placeholder="password"
-          name="password"
-          id="password"
-          v-model="account.password"
-        />
-        <label for="password" class="form__label">Password</label>
-        <span v-for="error in v$.password.$errors" :key="error.$uid">
-          {{ error.$message }}
-        </span>
-      </div>
-    </div>
-    <p v-if="checkLogin">Email or Password incorrect, Please enter again!</p>
-    <Button type="submit" label="Login" />
-  </form>
+      <p v-if="checkLogin">Email or Password incorrect, Please enter again!</p>
+      <Button type="submit" label="Login" />
+    </form>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -59,10 +61,7 @@ const rules = computed(() => {
 const v$ = useVuelidate(rules, account);
 
 const submitForm = async () => {
-  console.log("abc");
   const result = await v$.value.$validate();
-  console.log(axiosService.defaults.baseURL);
-  console.log(httpStatus.OK);
   if (result) {
     const fetchAccount = async () => {
       axiosService
@@ -72,10 +71,8 @@ const submitForm = async () => {
         })
         .then(function (response) {
           if (response.status === httpStatus.OK) {
-            alert("success !!!");
             localStorage.setItem("token", response.data.response.access_token);
-            localStorage.getItem("token");
-            router.push("/");
+            router.push("/employees");
             checkLogin.value = false;
           }
         })
@@ -89,6 +86,18 @@ const submitForm = async () => {
 </script>
 
 <style lang="scss" scoped>
+.container-login {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(to bottom, #c9a515, #c964e5);
+  h1 {
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
 .login-container {
   top: 0;
   display: flex;

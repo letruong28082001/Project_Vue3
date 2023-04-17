@@ -14,7 +14,7 @@
     </div>
 
     <div class="menu">
-      <router-link class="button btn1" to="/Employees">
+      <router-link class="button btn1" to="/employees">
         <span class="material-symbols-outlined">Person</span>
         <span class="text">Employees</span>
       </router-link>
@@ -56,12 +56,22 @@ const ToggleMenu = () => {
 </script>
 
 <style lang="scss" scoped>
+#root {
+  --primary: #4ade80;
+  --primary-alt: #22c55e;
+  --grey: #64748b;
+  --dark: #1e293b;
+  --dark-alt: #334155;
+  --light: #f1f5f9;
+  --sidebar-width: 300px;
+}
 aside {
+  width: 300px;
   margin-top: 60px;
   display: flex;
   flex-direction: column;
-  background-color: var(--dark);
-  color: var(--light);
+  background-color: #1e293b;
+  color: #f1f5f9;
   width: calc(2rem + 32px);
   overflow: hidden;
   min-height: 100vh;
@@ -89,15 +99,17 @@ aside {
     transition: 0.2s ease-in-out;
     .menu-toggle {
       transition: 0.2s ease-in-out;
+      border: none;
+      background: none;
       .material-symbols-outlined {
         font-size: 2rem;
-        color: var(--light);
+        color: #f1f5f9;
         transition: 0.2s ease-out;
       }
 
       &:hover {
         .material-symbols-outlined {
-          color: var(--primary);
+          color: #4ade80;
           transform: translateX(0.5rem);
         }
       }
@@ -117,32 +129,32 @@ aside {
       padding: 0.5rem 1rem;
       .material-symbols-outlined {
         font-size: 1.5rem;
-        color: var(--light);
+        color: #f1f5f9;
         transition: 0.2s ease-in-out;
       }
       .text {
-        color: var(--light);
+        color: #f1f5f9;
         transition: 0.2s ease-in-out;
       }
       &:hover {
-        background-color: var(--dark-alt);
+        background-color: #334155;
         .material-symbols-outlined,
         .text {
-          color: var(--primary);
+          color: #4ade80;
         }
       }
       &.router-link-exact-active {
-        background-color: var(--dark-alt);
-        border-right: 5px solid var(--primary);
+        background-color: #334155;
+        border-right: 5px solid #4ade80;
         .material-symbols-outlined,
         .text {
-          color: var(--primary);
+          color: #4ade80;
         }
       }
     }
   }
   &.is-expanded {
-    width: var(--sidebar-width);
+    width: 300px;
     .menu-toggle-wrap {
       top: -3rem;
 
