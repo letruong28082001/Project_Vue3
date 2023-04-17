@@ -14,31 +14,31 @@
     </div>
 
     <div class="menu">
-      <router-link class="button btn1" to="/">
+      <router-link class="button btn1" to="/employees">
         <span class="material-symbols-outlined">Person</span>
-        <span class="text">Thành viên</span>
+        <span class="text">Employees</span>
       </router-link>
-      <router-link class="button" to="/">
+      <router-link class="button" to="/apartment">
         <span class="material-symbols-outlined"> apartment </span>
-        <span class="text">Đơn vị công tác</span>
+        <span class="text">Work unit</span>
       </router-link>
-      <router-link class="button" to="/">
+      <router-link class="button" to="/picture_in_picture_alt">
         <span class="material-symbols-outlined"> picture_in_picture_alt </span>
-        <span class="text">Vị trí công việc</span>
+        <span class="text">Job position</span>
       </router-link>
-      <router-link class="button" to="/">
+      <router-link class="button" to="/group">
         <span class="material-symbols-outlined"> group </span>
-        <span class="text">Danh sách nhân viên</span>
+        <span class="text">Employees list</span>
       </router-link>
-      <router-link class="button" to="/">
+      <router-link class="button" to="/upload_file">
         <span class="material-symbols-outlined"> upload_file </span>
-        <span class="text">Tải lên nhân viên</span>
+        <span class="text">Upload employee</span>
       </router-link>
-      <router-link class="button" to="/">
+      <router-link class="button" to="/Home">
         <span class="material-symbols-outlined">Home</span>
-        <span class="text">Nhà cung cấp</span>
+        <span class="text">Supplier</span>
       </router-link>
-      <router-link class="button" to="/">
+      <router-link class="button" to="/logout">
         <span class="material-symbols-outlined"> logout </span>
         <span class="text">Logout</span>
       </router-link>
@@ -47,8 +47,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-const is_expanded: any = ref(localStorage.getItem("is_expanded") === "true");
+import { Ref, ref } from "vue";
+const is_expanded: Ref = ref(localStorage.getItem("is_expanded") === "true");
 const ToggleMenu = () => {
   is_expanded.value = !is_expanded.value;
   localStorage.setItem("is_expanded", is_expanded.value);
@@ -56,12 +56,22 @@ const ToggleMenu = () => {
 </script>
 
 <style lang="scss" scoped>
+#root {
+  --primary: #4ade80;
+  --primary-alt: #22c55e;
+  --grey: #64748b;
+  --dark: #1e293b;
+  --dark-alt: #334155;
+  --light: #f1f5f9;
+  --sidebar-width: 300px;
+}
 aside {
+  width: 300px;
   margin-top: 60px;
   display: flex;
   flex-direction: column;
-  background-color: var(--dark);
-  color: var(--light);
+  background-color: #1e293b;
+  color: #f1f5f9;
   width: calc(2rem + 32px);
   overflow: hidden;
   min-height: 100vh;
@@ -89,15 +99,17 @@ aside {
     transition: 0.2s ease-in-out;
     .menu-toggle {
       transition: 0.2s ease-in-out;
+      border: none;
+      background: none;
       .material-symbols-outlined {
         font-size: 2rem;
-        color: var(--light);
+        color: #f1f5f9;
         transition: 0.2s ease-out;
       }
 
       &:hover {
         .material-symbols-outlined {
-          color: var(--primary);
+          color: #4ade80;
           transform: translateX(0.5rem);
         }
       }
@@ -117,32 +129,32 @@ aside {
       padding: 0.5rem 1rem;
       .material-symbols-outlined {
         font-size: 1.5rem;
-        color: var(--light);
+        color: #f1f5f9;
         transition: 0.2s ease-in-out;
       }
       .text {
-        color: var(--light);
+        color: #f1f5f9;
         transition: 0.2s ease-in-out;
       }
       &:hover {
-        background-color: var(--dark-alt);
+        background-color: #334155;
         .material-symbols-outlined,
         .text {
-          color: var(--primary);
+          color: #4ade80;
         }
       }
       &.router-link-exact-active {
-        background-color: var(--dark-alt);
-        border-right: 5px solid var(--primary);
+        background-color: #334155;
+        border-right: 5px solid #4ade80;
         .material-symbols-outlined,
         .text {
-          color: var(--primary);
+          color: #4ade80;
         }
       }
     }
   }
   &.is-expanded {
-    width: var(--sidebar-width);
+    width: 300px;
     .menu-toggle-wrap {
       top: -3rem;
 

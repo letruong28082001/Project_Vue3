@@ -1,5 +1,5 @@
 <template>
-  <div id="Header">
+  <div id="header">
     <div class="sub-header">
       <i class="bi bi-bell-fill icon-notification"></i>
       <InputSwitch v-model="checked" />
@@ -13,13 +13,14 @@ import { ref } from "vue";
 const checked = ref();
 </script>
 <style lang="scss" scoped>
-#Header {
+#header {
   background-color: white;
   height: 60px;
   width: 100% !important;
   box-shadow: 1px 1px 9px #2cefdd6b;
   display: flex;
-  justify-content: end;
+  text-align: end;
+  justify-content: flex-end;
   align-items: center;
   padding-right: 50px;
   position: fixed;
