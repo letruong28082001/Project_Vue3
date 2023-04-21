@@ -4,6 +4,9 @@ import router from "./router";
 import store from "./store";
 import "./assets/global.css";
 
+// import { createI18n } from "vue-i18n";
+import i18n from "./configs/i18nLanguages";
+
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import PrimeVue from "primevue/config";
@@ -21,4 +24,5 @@ app.use(store);
 app.use(router);
 app.use(PrimeVue);
 app.use(pinia);
+app.use(i18n);
 app.mount("#app");

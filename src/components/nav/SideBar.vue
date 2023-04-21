@@ -1,5 +1,8 @@
 <template>
-  <aside :class="`${is_expanded ? 'is-expanded' : ''}`">
+  <aside
+    :class="`${is_expanded ? 'is_expanded' : ''}`"
+    @click="emit('ToggleMenu', is_expanded)"
+  >
     <div class="logo">
       <img src="../../assets/imgs/user.jpg" alt="Vue" />
       <h1>HRM</h1>
@@ -16,43 +19,49 @@
     <div class="menu">
       <router-link class="button btn1" to="/employees">
         <span class="material-symbols-outlined">Person</span>
-        <span class="text">Employees</span>
+        <span class="text">{{ $t("sidebar.Employee") }}</span>
       </router-link>
-      <router-link class="button" to="/apartment">
+      <router-link class="button" to="/work-unit">
         <span class="material-symbols-outlined"> apartment </span>
-        <span class="text">Work unit</span>
+        <span class="text">{{ $t("sidebar.WorkUnit") }}</span>
       </router-link>
       <router-link class="button" to="/picture_in_picture_alt">
         <span class="material-symbols-outlined"> picture_in_picture_alt </span>
-        <span class="text">Job position</span>
+        <span class="text">{{ $t("sidebar.JobPosition") }}</span>
       </router-link>
       <router-link class="button" to="/group">
         <span class="material-symbols-outlined"> group </span>
-        <span class="text">Employees list</span>
+        <span class="text">{{ $t("sidebar.EmployeesList") }}</span>
       </router-link>
       <router-link class="button" to="/upload_file">
         <span class="material-symbols-outlined"> upload_file </span>
-        <span class="text">Upload employee</span>
+        <span class="text">{{ $t("sidebar.UploadEmployee") }}</span>
       </router-link>
       <router-link class="button" to="/Home">
         <span class="material-symbols-outlined">Home</span>
-        <span class="text">Supplier</span>
+        <span class="text">{{ $t("sidebar.Supplier") }}</span>
       </router-link>
       <router-link class="button" to="/logout">
         <span class="material-symbols-outlined"> logout </span>
-        <span class="text">Logout</span>
+        <span class="text">{{ $t("sidebar.Logout") }}</span>
       </router-link>
     </div>
   </aside>
 </template>
 
 <script setup lang="ts">
-import { Ref, ref } from "vue";
+import { Ref, ref, defineEmits, onMounted } from "vue";
+import i18n from "@/configs/i18nLanguages";
+const t = i18n.global;
+const emit = defineEmits(["ToggleMenu"]);
 const is_expanded: Ref = ref(localStorage.getItem("is_expanded") === "true");
 const ToggleMenu = () => {
   is_expanded.value = !is_expanded.value;
   localStorage.setItem("is_expanded", is_expanded.value);
 };
+onMounted(() => {
+  emit("ToggleMenu", is_expanded.value);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -153,7 +162,7 @@ aside {
       }
     }
   }
-  &.is-expanded {
+  &.is_expanded {
     width: 300px;
     .menu-toggle-wrap {
       top: -3rem;
