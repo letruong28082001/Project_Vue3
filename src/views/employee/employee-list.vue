@@ -90,8 +90,6 @@ import InputText from "primevue/inputtext";
 import HeaderPage from "@/components/header/HeaderPage.vue";
 import SidebarPage from "@/components/nav/SideBar.vue";
 import { createApp } from "vue";
-import i18n from "@/configs/i18nLanguages";
-const t = i18n.global;
 const searchValue = ref();
 const app = createApp({});
 app.component("HeaderPage", HeaderPage);

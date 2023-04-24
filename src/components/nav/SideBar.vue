@@ -1,6 +1,6 @@
 <template>
   <aside
-    :class="`${is_expanded ? 'is_expanded' : ''}`"
+    :class="{ is_expanded: is_expanded }"
     @click="emit('ToggleMenu', is_expanded)"
   >
     <div class="logo">
@@ -51,8 +51,6 @@
 
 <script setup lang="ts">
 import { Ref, ref, defineEmits, onMounted } from "vue";
-import i18n from "@/configs/i18nLanguages";
-const t = i18n.global;
 const emit = defineEmits(["ToggleMenu"]);
 const is_expanded: Ref = ref(localStorage.getItem("is_expanded") === "true");
 const ToggleMenu = () => {

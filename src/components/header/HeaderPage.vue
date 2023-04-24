@@ -3,7 +3,7 @@
     <div class="sub-header">
       <Dropdown
         v-model="selectedLanguage"
-        :options="languages"
+        :options="listLanguage"
         option-label="name"
         placeholder="Select a Language"
         class="w-full md:w-14rem"
@@ -49,35 +49,17 @@
 <script lang="ts" setup>
 import Dropdown from "primevue/dropdown";
 import { ref, watch } from "vue";
-// import i18n from "@/configs/i18nLanguages";
+import { listLanguage } from "@/constants/ListLanguage";
 import { useI18n } from "vue-i18n";
-// const t = i18n.global;
 const t = useI18n();
 const selectedLanguage = ref({
-  name: "Vietnamese",
-  code: "VN",
-  img: "https://product.hstatic.net/200000122283/product/c-e1-bb-9d-vi-e1-bb-87t-nam_2c0683597d2d419fac401f51ccbae779_grande.jpg",
+  name: listLanguage[0].name,
+  code: listLanguage[0].code,
+  img: listLanguage[0].img,
 });
 watch(selectedLanguage, () => {
-  t.locale.value = selectedLanguage.value.code.toLocaleLowerCase();
+  t.locale.value = selectedLanguage.value.code.toLowerCase();
 });
-const languages = ref([
-  {
-    name: "Vietnamese",
-    code: "VN",
-    img: "https://product.hstatic.net/200000122283/product/c-e1-bb-9d-vi-e1-bb-87t-nam_2c0683597d2d419fac401f51ccbae779_grande.jpg",
-  },
-  {
-    name: "English",
-    code: "EN",
-    img: "https://vuongquocanh.com/wp-content/uploads/2018/04/la-co-vuong-quoc-anh.jpg",
-  },
-  {
-    name: "Japan",
-    code: "JA",
-    img: "https://cdn.pixabay.com/photo/2013/07/13/14/15/japan-162328_1280.png",
-  },
-]);
 </script>
 <style lang="scss" scoped>
 #header {

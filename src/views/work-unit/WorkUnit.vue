@@ -43,12 +43,10 @@
 import HeaderPage from "@/components/header/HeaderPage.vue";
 import SidebarPage from "@/components/nav/SideBar.vue";
 import { createApp, onMounted, ref, inject } from "vue";
-import i18n from "@/configs/i18nLanguages";
 import { axiosService } from "@/services/axios/axios";
 import TreeTable from "primevue/treetable";
 import Column from "primevue/column";
 import WorkUnit from "@/helpers/work-unit";
-const t = i18n.global;
 const app = createApp({});
 const is_expandeds = ref(false);
 
