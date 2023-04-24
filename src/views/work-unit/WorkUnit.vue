@@ -42,7 +42,7 @@
 <script setup lang="ts">
 import HeaderPage from "@/components/header/HeaderPage.vue";
 import SidebarPage from "@/components/nav/SideBar.vue";
-import { createApp, onMounted, ref, inject } from "vue";
+import { createApp, onMounted, ref } from "vue";
 import { axiosService } from "@/services/axios/axios";
 import TreeTable from "primevue/treetable";
 import Column from "primevue/column";

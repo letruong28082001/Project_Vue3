@@ -4,7 +4,6 @@ import router from "./router";
 import store from "./store";
 import "./assets/global.css";
 
-// import { createI18n } from "vue-i18n";
 import i18n from "./configs/i18nLanguages";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
