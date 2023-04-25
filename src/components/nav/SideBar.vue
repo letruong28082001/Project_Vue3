@@ -17,11 +17,11 @@
     </div>
 
     <div class="menu">
-      <router-link class="button btn1" to="/employees">
+      <router-link class="button btn1" :to="{ name: 'Employees' }">
         <span class="material-symbols-outlined">Person</span>
         <span class="text">{{ $t("sidebar.Employee") }}</span>
       </router-link>
-      <router-link class="button" to="/work-unit">
+      <router-link class="button" :to="{ name: 'WorkUnit' }">
         <span class="material-symbols-outlined"> apartment </span>
         <span class="text">{{ $t("sidebar.WorkUnit") }}</span>
       </router-link>

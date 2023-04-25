@@ -46,7 +46,8 @@ import { createApp, onMounted, ref } from "vue";
 import { axiosService } from "@/services/axios/axios";
 import TreeTable from "primevue/treetable";
 import Column from "primevue/column";
-import WorkUnit from "@/helpers/work-unit";
+import WorkUnit from "@/models/work-unit";
+import { apiPath } from "@/constants/api-path";
 const app = createApp({});
 const is_expandeds = ref(false);
 
@@ -57,10 +58,9 @@ function ToggleMenu(is_expanded: boolean) {
 app.component("HeaderPage", HeaderPage);
 app.component("SidebarPage", SidebarPage);
 const dataUnit = ref([]);
-const token = localStorage.getItem("token");
 
-function handleWorkUnit(units: WorkUnit[]): any {
-  return units.map((unit: WorkUnit) => {
+function handleWorkUnit(units: WorkUnit[]): WorkUnit[] {
+  return units.map((unit: WorkUnit): WorkUnit => {
     if (unit.children) {
       return {
         data: {
@@ -77,13 +77,9 @@ function handleWorkUnit(units: WorkUnit[]): any {
   });
 }
 const fetchUnit = () => {
-  axiosService
-    .get("/organization-units", {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-    .then((res) => {
-      dataUnit.value = handleWorkUnit(res.data.response.data);
-    });
+  axiosService.get(apiPath.apiWorkUnit).then((res) => {
+    dataUnit.value = handleWorkUnit(res.data.response.data);
+  });
 };
 
 onMounted(() => {

@@ -5,14 +5,17 @@ import workUnit from "../views/work-unit/WorkUnit.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
+    name: "Login",
     component: Login,
   },
   {
     path: "/employees",
+    name: "Employees",
     component: employeeList,
   },
   {
     path: "/work-unit",
+    name: "WorkUnit",
     component: workUnit,
   },
 ];
