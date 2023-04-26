@@ -20,8 +20,7 @@
 <script setup lang="ts">
 import { apiPath } from "@/constants/api-path";
 import { axiosService } from "@/services/axios/axios";
-import { defineProps, defineEmits, onMounted, ref } from "vue";
-import ColumnGroup from "primevue/columngroup"; // optional
+import { defineProps, ref } from "vue";
 import Column from "primevue/column";
 import DataTable from "primevue/datatable";
 const props = defineProps({
