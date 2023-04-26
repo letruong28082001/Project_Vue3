@@ -20,7 +20,7 @@
               :alt="languages.value.optionLabel"
               :src="languages.value.img"
               :class="`mr-2 flag flag-${languages.value.code.toLowerCase()}`"
-              style="width: 18px; height: 20px; border-radius: 0"
+              style="width: 20px; height: 20px; border-radius: 0"
             />
           </div>
           <span v-else>
@@ -37,7 +37,7 @@
               :alt="languages.option.optionLabel"
               :src="languages.option.img"
               :class="`mr-2 flag flag-${languages.option.code.toLowerCase()}`"
-              style="width: 18px; display: flex"
+              style="width: 20px; display: flex"
             />
           </div>
         </template>

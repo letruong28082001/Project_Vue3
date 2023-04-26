@@ -135,7 +135,6 @@ app.component("SidebarPage", SidebarPage);
       margin: 7px;
       img {
         width: 100%;
-        height: 200px;
       }
       .employee-info {
         margin-top: 20px;

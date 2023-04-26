@@ -7,11 +7,11 @@ export const listLanguage = [
   {
     name: "English",
     code: "EN",
-    img: "https://vuongquocanh.com/wp-content/uploads/2018/04/la-co-vuong-quoc-anh.jpg",
+    img: "https://thietbidoandoi.com/wp-content/uploads/2022/04/co-anh.png",
   },
   {
     name: "Japan",
     code: "JA",
-    img: "https://cdn.pixabay.com/photo/2013/07/13/14/15/japan-162328_1280.png",
+    img: "https://anbvietnam.vn/wp-content/uploads/2020/11/y-nghia-quoc-ky-han-quoc3.png",
   },
 ];
