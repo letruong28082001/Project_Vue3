@@ -1,16 +1,65 @@
 <template>
   <div id="header">
     <div class="sub-header">
-      <i class="bi bi-bell-fill icon-notification"></i>
-      <InputSwitch v-model="checked" />
+      <Dropdown
+        v-model="selectedLanguage"
+        :options="listLanguage"
+        option-label="name"
+        placeholder="Select a Language"
+        class="w-full md:w-14rem"
+        style="display: flex; width: 100%"
+      >
+        <template #value="languages">
+          <div
+            v-if="languages.value"
+            class="flex align-items-center"
+            style="display: flex"
+          >
+            <div>{{ languages.value.name }}</div>
+            <img
+              :alt="languages.value.optionLabel"
+              :src="languages.value.img"
+              :class="`mr-2 flag flag-${languages.value.code.toLowerCase()}`"
+              style="width: 18px; height: 20px; border-radius: 0"
+            />
+          </div>
+          <span v-else>
+            {{ languages.placeholder }}
+          </span>
+        </template>
+        <template #option="languages">
+          <div
+            class="flex align-items-center"
+            style="display: flex; justify-content: space-between; width: 100%"
+          >
+            <div>{{ languages.option.name }}</div>
+            <img
+              :alt="languages.option.optionLabel"
+              :src="languages.option.img"
+              :class="`mr-2 flag flag-${languages.option.code.toLowerCase()}`"
+              style="width: 18px; display: flex"
+            />
+          </div>
+        </template>
+      </Dropdown>
       <img src="../../assets/imgs/user.jpg" alt="" />
     </div>
   </div>
 </template>
 <script lang="ts" setup>
-import InputSwitch from "primevue/inputswitch";
-import { ref } from "vue";
-const checked = ref();
+import Dropdown from "primevue/dropdown";
+import { ref, watch } from "vue";
+import { listLanguage } from "@/constants/ListLanguage";
+import { useI18n } from "vue-i18n";
+const t = useI18n();
+const selectedLanguage = ref({
+  name: listLanguage[0].name,
+  code: listLanguage[0].code,
+  img: listLanguage[0].img,
+});
+watch(selectedLanguage, () => {
+  t.locale.value = selectedLanguage.value.code.toLowerCase();
+});
 </script>
 <style lang="scss" scoped>
 #header {

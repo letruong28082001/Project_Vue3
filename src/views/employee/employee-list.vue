@@ -5,10 +5,13 @@
       <div class="sub-common-content">
         <sidebar-page></sidebar-page>
         <main class="employee-list-page">
-          <h1>DA NANG-OUTSOURCES (UIT DEPT)</h1>
+          <h1>{{ $t("titleHedear") }}</h1>
           <span class="p-input-icon-left">
             <i class="pi pi-search" />
-            <InputText v-model="searchValue" placeholder="Search..." />
+            <InputText
+              v-model="searchValue"
+              :placeholder="$t('searchEmployee.search')"
+            />
           </span>
           <div class="employee-list">
             <div class="employee">
@@ -84,8 +87,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import InputText from "primevue/inputtext";
-// import { getAllEmployee } from "@/services/api/EmployeeAPI";
-
 import HeaderPage from "@/components/header/HeaderPage.vue";
 import SidebarPage from "@/components/nav/SideBar.vue";
 import { createApp } from "vue";

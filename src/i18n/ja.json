@@ -1,0 +1,23 @@
+{
+    "titleHedear":"다낭 아웃소싱 (UIT 부서)",
+    "sidebar": {
+        "Employee": "직원",
+        "WorkUnit": "작업 단위",
+        "JobPosition": "직위",
+        "EmployeesList": "직원 목록",
+        "UploadEmployee": "직원 업로드",
+        "Supplier": "공급자",
+        "Logout": "로그 아웃"
+    },
+    "titleWorkUnit": {
+        "unitManagement": "단위 관리",
+        "titleTable": {
+            "unitName": "단위 이름",
+            "unitcode": "단위 코드",
+            "unitAddress": "단위 주소"
+        }
+    },
+    "searchEmployee": {
+        "search": "찾다..."
+    }
+}

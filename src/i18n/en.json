@@ -1,0 +1,23 @@
+{
+    "titleHedear":"DA NANG-OUTSOURCES (UIT DEPT)",
+    "sidebar": {
+        "Employee": "Employee",
+        "WorkUnit": "Work Unit",
+        "JobPosition": "Job Position",
+        "EmployeesList": "Employees List",
+        "UploadEmployee": "Upload Employee",
+        "Supplier": "Supplier",
+        "Logout": "Logout"
+    },
+    "titleWorkUnit": {
+        "unitManagement": "Unit Management",
+        "titleTable": {
+            "unitName": "ORGANIZATIONAL UNIT NAME",
+            "unitcode": "ORGANIZATIONAL UNIT CODE",
+            "unitAddress": "ADDRESS"
+        }
+    },
+    "searchEmployee": {
+        "search": "Search..."
+    }
+}

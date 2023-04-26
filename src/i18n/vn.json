@@ -1,0 +1,23 @@
+{
+    "titleHedear":"ĐÀ NẴNG - THUÊ NGOÀI ( UIT DEPT)",
+    "sidebar":{
+        "Employee":"Nhân viên",
+        "WorkUnit":"Đơn vị công tác",
+        "JobPosition":"Vị trí công việc",
+        "EmployeesList":"Danh sách nhân viên",
+        "UploadEmployee":"Tải lên nhân viên",
+        "Supplier":"Nhà cung cấp",
+        "Logout":"Đăng xuất"
+    },
+    "titleWorkUnit": {
+        "unitManagement": "Quản lý đơn vị",
+        "titleTable":{
+            "unitName":"TÊN ĐƠN VỊ TỔ CHỨC",
+            "unitcode":"MÃ ĐƠN VỊ TỔ CHỨC",
+            "unitAddress":"ĐỊA CHỈ"
+        }
+    },
+    "searchEmployee": {
+        "search": "Tìm kiếm..."
+    }
+}
