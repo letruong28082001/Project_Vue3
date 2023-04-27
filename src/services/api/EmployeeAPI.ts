@@ -5,7 +5,7 @@ export const apiStore = defineStore("Employee", {
     login(url: string, data: any) {
       return axiosService.post(`${url}`, data);
     },
-    getAllEmployee(url: string, page: number, limit: number) {
+    getAll(url: string, page: number, limit: number) {
       return axiosService.get(`/${url}?page=${page}&limit=${limit}`);
     },
   },

@@ -1,5 +1,5 @@
 {
-    "titleHedear":"DA NANG-OUTSOURCES (UIT DEPT)",
+    "titleHedear": "DA NANG-OUTSOURCES (UIT DEPT)",
     "sidebar": {
         "Employee": "Employee",
         "WorkUnit": "Work Unit",
@@ -10,7 +10,7 @@
         "Logout": "Logout"
     },
     "titleWorkUnit": {
-        "unitManagement": "Unit Management",
+        "unitManagement": "UNIT MANAGEMENT",
         "titleTable": {
             "unitName": "ORGANIZATIONAL UNIT NAME",
             "unitcode": "ORGANIZATIONAL UNIT CODE",
@@ -18,6 +18,18 @@
         }
     },
     "searchEmployee": {
+        "search": "Search..."
+    },
+    "titleJobPosition": {
+        "jobManagement": "JOB POSITION MANAGEMENT",
+        "titleTable": {
+            "jobCode": "CODE",
+            "jobName": "POSITION NAME",
+            "jobPosition": "BEING BY UNIT",
+            "jobType": "POSITION TYPE"
+        }
+    },
+    "searchJob": {
         "search": "Search..."
     }
 }

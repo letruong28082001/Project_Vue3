@@ -19,5 +19,17 @@
     },
     "searchEmployee": {
         "search": "찾다..."
+    },
+    "titleJobPosition": {
+        "jobManagement": "작업 위치 관리",
+        "titleTable": {
+            "jobCode": "암호",
+            "jobName": "직위 이름",
+            "jobPosition": "단위로 존재",
+            "jobType": "위치 유형"
+        }
+    },
+    "searchJob": {
+        "search": "찾다..."
     }
 }

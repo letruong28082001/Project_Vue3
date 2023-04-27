@@ -10,7 +10,7 @@
         "Logout":"Đăng xuất"
     },
     "titleWorkUnit": {
-        "unitManagement": "Quản lý đơn vị",
+        "unitManagement": "QUẢN LÝ ĐƠN VỊ",
         "titleTable":{
             "unitName":"TÊN ĐƠN VỊ TỔ CHỨC",
             "unitcode":"MÃ ĐƠN VỊ TỔ CHỨC",
@@ -18,6 +18,18 @@
         }
     },
     "searchEmployee": {
+        "search": "Tìm kiếm..."
+    },
+    "titleJobPosition": {
+        "jobManagement": "QUẢN LÝ VỊ TRÍ CÔNG VIỆC",
+        "titleTable": {
+            "jobCode": "MÃ",
+            "jobName": "TÊN VỊ TRÍ",
+            "jobPosition": "THUỘC ĐƠN VỊ",
+            "jobType": "LOẠI VỊ TRÍ"
+        }
+    },
+    "searchJob": {
         "search": "Tìm kiếm..."
     }
 }

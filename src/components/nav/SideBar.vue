@@ -25,7 +25,7 @@
         <span class="material-symbols-outlined"> apartment </span>
         <span class="text">{{ $t("sidebar.WorkUnit") }}</span>
       </router-link>
-      <router-link class="button" to="/picture_in_picture_alt">
+      <router-link class="button" :to="{ name: 'JobPosition' }">
         <span class="material-symbols-outlined"> picture_in_picture_alt </span>
         <span class="text">{{ $t("sidebar.JobPosition") }}</span>
       </router-link>
