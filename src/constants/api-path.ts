@@ -1,3 +1,4 @@
 export const apiPath = {
-  apiWorkUnit: "/organization-units",
+  apiWorkUnit: "/organization-units/",
+  apiMemberWorkUnit: "/members",
 };

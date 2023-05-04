@@ -19,8 +19,7 @@
             <img
               :alt="languages.value.optionLabel"
               :src="languages.value.img"
-              :class="`mr-2 flag flag-${languages.value.code.toLowerCase()}`"
-              style="width: 18px; height: 20px; border-radius: 0"
+              :class="`mr-2 option-value flag flag-${languages.value.code.toLowerCase()}`"
             />
           </div>
           <span v-else>
@@ -36,8 +35,7 @@
             <img
               :alt="languages.option.optionLabel"
               :src="languages.option.img"
-              :class="`mr-2 flag flag-${languages.option.code.toLowerCase()}`"
-              style="width: 18px; display: flex"
+              :class="`mr-2 option-img flag flag-${languages.option.code.toLowerCase()}`"
             />
           </div>
         </template>
@@ -77,6 +75,11 @@ watch(selectedLanguage, () => {
   top: 0;
   padding-right: 100px;
   right: 0;
+  .option-value {
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+  }
   img {
     width: 3rem;
     height: 3rem;
@@ -98,5 +101,9 @@ watch(selectedLanguage, () => {
   img {
     margin-left: 20px;
   }
+}
+.option-img {
+  width: 20px;
+  display: flex;
 }
 </style>

@@ -41,7 +41,7 @@
         <span class="material-symbols-outlined">Home</span>
         <span class="text">{{ $t("sidebar.Supplier") }}</span>
       </router-link>
-      <router-link class="button" to="/logout">
+      <router-link class="button" @click="logout" to="/">
         <span class="material-symbols-outlined"> logout </span>
         <span class="text">{{ $t("sidebar.Logout") }}</span>
       </router-link>
@@ -57,6 +57,12 @@ const ToggleMenu = () => {
   is_expanded.value = !is_expanded.value;
   localStorage.setItem("is_expanded", JSON.stringify(is_expanded.value));
 };
+
+const logout = () => {
+  alert("Bạn chắc chắn muốn thoát ?");
+  window.localStorage.clear();
+};
+
 onMounted(() => {
   emit("ToggleMenu", is_expanded.value);
 });
