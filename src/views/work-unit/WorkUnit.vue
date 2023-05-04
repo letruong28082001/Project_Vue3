@@ -22,7 +22,6 @@
                 field="organization_unit_name"
                 :header="`${$t('titleWorkUnit.titleTable.unitName')}`"
                 expander
-                style="width: 40%"
               ></Column>
               <Column
                 field="organization_unit_code"
@@ -108,9 +107,9 @@ const fetchUnit = () => {
     dataUnit.value = handleWorkUnit(res.data.response.data);
   });
 };
-function getListMember(e: []) {
+function getListMember(listMember: []) {
   visible.value = true;
-  organization_unit_id.value = e.node.data.organization_unit_id;
+  organization_unit_id.value = listMember.node.data.organization_unit_id;
 }
 onMounted(() => {
   fetchUnit();
