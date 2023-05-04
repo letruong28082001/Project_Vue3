@@ -21,8 +21,8 @@
               <Column
                 field="organization_unit_name"
                 :header="`${$t('titleWorkUnit.titleTable.unitName')}`"
+                :class="`column_unit_name`"
                 expander
-                style="width: 40%"
               ></Column>
               <Column
                 field="organization_unit_code"
@@ -108,9 +108,9 @@ const fetchUnit = () => {
     dataUnit.value = handleWorkUnit(res.data.response.data);
   });
 };
-function getListMember(e: []) {
+function getListMember(listMember: []) {
   visible.value = true;
-  organization_unit_id.value = e.node.data.organization_unit_id;
+  organization_unit_id.value = listMember.node.data.organization_unit_id;
 }
 onMounted(() => {
   fetchUnit();
@@ -139,6 +139,7 @@ table {
   border-collapse: collapse;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
   tr {
     &:hover {
       background: #f4f4f4;
