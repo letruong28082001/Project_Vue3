@@ -120,8 +120,9 @@ onMounted(() => {
 <style lang="scss" scoped>
 .work-unit {
   width: 100%;
-  margin: 100px auto;
+  padding: 100px 0;
   text-align: center;
+  background-color: #d2d8de54;
 }
 .table {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
@@ -175,6 +176,9 @@ table {
   .action {
     display: flex;
     justify-content: center;
+    Button {
+      border: none;
+    }
   }
 }
 </style>

@@ -31,6 +31,7 @@ axiosService
   .get(apiPath.apiWorkUnit + props.id + apiPath.apiMemberWorkUnit)
   .then((res) => {
     listMember.value = res.data.response.users;
+    console.log(res);
   });
 </script>
 

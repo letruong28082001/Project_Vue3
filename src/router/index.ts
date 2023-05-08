@@ -30,4 +30,11 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
+
+router.beforeEach((to) => {
+  if (!localStorage.getItem("token") && to.name !== "Login") {
+    return { name: "Login" };
+  }
+});
+
 export default router;

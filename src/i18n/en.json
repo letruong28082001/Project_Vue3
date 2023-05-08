@@ -31,5 +31,15 @@
     },
     "searchJob": {
         "search": "Search..."
+    },
+    "addJobContent": {
+        "addJob": "Add Job",
+        "title": "Add a new job position",
+        "codeJob": "Code",
+        "nameJob": "Name Job",
+        "nameOther": "Name Other",
+        "typeJob": "Type Job",
+        "belongUnit": "Belonging to the unit",
+        "description": "Description Job"
     }
 }

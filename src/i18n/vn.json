@@ -31,5 +31,15 @@
     },
     "searchJob": {
         "search": "Tìm kiếm..."
+    },
+    "addJobContent": {
+        "addJob": "Thêm công việc",
+        "title": "Thêm vị trí công việc mới",
+        "codeJob": "Mã",
+        "nameJob": "Tên công việc",
+        "nameOther": "Tên Khác",
+        "typeJob": "Loại công việc",
+        "belongUnit": "Thuộc đơn vị",
+        "description": "Mô tả công việc"
     }
 }

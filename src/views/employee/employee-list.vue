@@ -110,8 +110,12 @@ app.component("SidebarPage", SidebarPage);
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding-left: 30px;
+  width: 100%;
+  padding: 100px 0;
   padding-bottom: 30px;
+  padding-left: 30px;
+  text-align: center;
+  background-color: #d2d8de54;
   .p-input-icon-left {
     width: 60%;
     display: flex;

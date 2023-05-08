@@ -12,6 +12,6 @@ export const listLanguage = [
   {
     name: "Japan",
     code: "JA",
-    img: "https://anbvietnam.vn/wp-content/uploads/2020/11/y-nghia-quoc-ky-han-quoc3.png",
+    img: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Flag_of_Japan_%28bordered%29.svg",
   },
 ];
