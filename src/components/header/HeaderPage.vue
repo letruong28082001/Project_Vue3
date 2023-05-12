@@ -80,7 +80,6 @@ watch(selectedLanguage, () => {
     height: 20px;
     border-radius: 0;
   }
-
   img {
     width: 3rem;
     height: 3rem;
