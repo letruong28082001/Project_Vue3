@@ -41,5 +41,12 @@
         "typeJob": "작업 입력",
         "belongUnit": "단위에 속함",
         "description": "설명 작업"
+    },
+    "listMemberTittle":"위치별 직원 목록",
+    "listMemberByJobPosition":{
+        "code":"암호",
+        "fullName":"이름",
+        "email":"이메일",
+        "mobile":"휴대전화"
     }
 }

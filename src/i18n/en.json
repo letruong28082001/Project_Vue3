@@ -34,12 +34,19 @@
     },
     "addJobContent": {
         "addJob": "Add Job",
-        "title": "Add a new job position",
+        "title": "Information job position",
         "codeJob": "Code",
         "nameJob": "Name Job",
         "nameOther": "Name Other",
         "typeJob": "Type Job",
         "belongUnit": "Belonging to the unit",
         "description": "Description Job"
+    },
+    "listMemberTittle":"List of employees by location",
+    "listMemberByJobPosition":{
+        "code":"Code",
+        "fullName":"Name",
+        "email":"Email",
+        "mobile":"Mobile Phone"
     }
 }
