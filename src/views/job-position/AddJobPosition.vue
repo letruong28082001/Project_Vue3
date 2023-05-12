@@ -75,7 +75,6 @@
         <label for="username">{{ $t("addJobContent.belongUnit") }}</label
         ><span> *</span>
       </div>
-      <p>{{ valueInputAdd.organization_unit_id }}</p>
       <tree-select
         v-model="valueInputAdd.organization_unit_id"
         :options="unit_id"
