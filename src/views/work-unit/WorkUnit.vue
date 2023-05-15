@@ -21,7 +21,6 @@
               <Column
                 field="organization_unit_name"
                 :header="`${$t('titleWorkUnit.titleTable.unitName')}`"
-                :class="`column_unit_name`"
                 expander
               ></Column>
               <Column

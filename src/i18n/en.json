@@ -40,7 +40,8 @@
         "nameOther": "Name Other",
         "typeJob": "Type Job",
         "belongUnit": "Belonging to the unit",
-        "description": "Description Job"
+        "description": "Description Job",
+        "saveBtn": "Save"
     },
     "listMemberTittle":"List of employees by location",
     "listMemberByJobPosition":{
@@ -48,5 +49,6 @@
         "fullName":"Name",
         "email":"Email",
         "mobile":"Mobile Phone"
-    }
+    },
+    "validateEmoji": "This field cannot be emoji"
 }

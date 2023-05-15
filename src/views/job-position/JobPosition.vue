@@ -8,19 +8,7 @@
           <h1>{{ $t("titleJobPosition.jobManagement") }}</h1>
           <div class="btn-container-add-job">
             <Button
-              @click="
-                () => {
-                  valAddForm = true;
-                  type = 'add';
-                  valueInputUpdate.job_position_id = '';
-                  valueInputUpdate.job_position_code = '';
-                  valueInputUpdate.job_position_name = '';
-                  valueInputUpdate.job_position_category = '';
-                  valueInputUpdate.job_position_other_name = '';
-                  valueInputUpdate.organization_unit_id = '';
-                  valueInputUpdate.description = '';
-                }
-              "
+              @click="addJob"
               class="btn_add-Job"
               :label="`${$t('addJobContent.addJob')}`"
               icon="pi pi-plus"
@@ -129,9 +117,9 @@
     :breakpoints="{ '960px': '70vw', '641px': '100vw' }"
   >
     <add-job-position
-      @valAdd="toggleDialogAddUpdate"
+      @valAddUpdate="toggleDialogAddUpdate"
       :type="type"
-      :addForm="valueInputUpdate"
+      :addUpdateForm="valueInputUpdate"
     />
   </Dialog>
 </template>
@@ -155,7 +143,7 @@ const page = ref();
 const valAddForm = ref(false);
 const visible = ref(false);
 const valueSearch = ref("");
-const JobData: object = ref({});
+const JobData = ref<object>({});
 const organization_unit_name = ref("");
 const type = ref("add");
 const member = ref([]);
@@ -163,17 +151,19 @@ const member = ref([]);
 function getMembersByJobPosition(id: any) {
   toggleBtn();
   axiosService
-    .get(
-      apiPath.apiMemberbyJobPosition +
-        "?page=1&limit=10&job_position_id=" +
-        id.data.job_position_id
-    )
+    .get(apiPath.apiMemberbyJobPosition, {
+      params: {
+        page: 1,
+        limit: 100,
+        job_position_id: id.data.job_position_id,
+      },
+    })
     .then((res) => {
       member.value = res.data.response.data;
     });
 }
 
-const valueInputUpdate = reactive({
+const valueInputUpdate = reactive<object>({
   job_position_id: "",
   job_position_code: "",
   job_position_name: "",
@@ -194,7 +184,12 @@ watchEffect(() => {
 
 function getDataJobPosition() {
   axiosService
-    .get(apiPath.apiJobPosition + "?page=1&limit=100")
+    .get(apiPath.apiJobPosition, {
+      params: {
+        page: 1,
+        limit: 100,
+      },
+    })
     .then((res) => {
       jobs.value = res.data.response.data;
     })
@@ -204,9 +199,13 @@ function getDataJobPosition() {
 }
 watch(valueSearch, () => {
   axiosService
-    .get(
-      apiPath.apiJobPosition + "?page=1&limit=10&keyword=" + valueSearch.value
-    )
+    .get(apiPath.apiJobPosition, {
+      params: {
+        page: 1,
+        limit: 10,
+        keyword: valueSearch.value,
+      },
+    })
     .then((res) => {
       jobs.value = res.data.response.data;
     })
@@ -219,7 +218,7 @@ function toggleBtn() {
 }
 
 const data = ref({});
-function openUpdateForm(slotProps: []) {
+function openUpdateForm(slotProps: any) {
   valAddForm.value = true;
   type.value = "update";
   JobData.value = {
@@ -234,11 +233,24 @@ function openUpdateForm(slotProps: []) {
   valueInputUpdate.job_position_category = JobData.value.job_position_category;
   valueInputUpdate.job_position_other_name =
     JobData.value.job_position_other_name;
+  valueInputUpdate.description = JobData.value.description;
+
   valueInputUpdate.organization_unit_id =
     JobData.value.organization.organization_unit_id;
-  valueInputUpdate.description = JobData.value.description;
   organization_unit_name.value =
     JobData.value.organization.organization_unit_name;
+}
+
+function addJob() {
+  valAddForm.value = true;
+  type.value = "add";
+  valueInputUpdate.job_position_id = "";
+  valueInputUpdate.job_position_code = "";
+  valueInputUpdate.job_position_name = "";
+  valueInputUpdate.job_position_category = "";
+  valueInputUpdate.job_position_other_name = "";
+  valueInputUpdate.organization_unit_id = "";
+  valueInputUpdate.description = "";
 }
 </script>
 <style lang="scss" scoped>

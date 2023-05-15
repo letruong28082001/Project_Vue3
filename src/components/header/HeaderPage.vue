@@ -73,7 +73,7 @@ watch(selectedLanguage, () => {
   position: fixed;
   z-index: 99;
   top: 0;
-  padding-right: 100px;
+  padding-right: 50px;
   right: 0;
   .option-value {
     width: 20px;

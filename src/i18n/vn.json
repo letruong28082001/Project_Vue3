@@ -40,7 +40,8 @@
         "nameOther": "Tên Khác",
         "typeJob": "Loại công việc",
         "belongUnit": "Thuộc đơn vị",
-        "description": "Mô tả công việc"
+        "description": "Mô tả công việc",
+        "saveBtn": "Lưu"
     },
     "listMemberTittle":"Danh sách nhân viên theo vị trí",
     "listMemberByJobPosition": {
@@ -48,5 +49,6 @@
         "fullName": "Tên",
         "email": "Email",
         "mobile": "Số điện thoại"
-    }
+    },
+    "validateEmoji": "Trường này không thể là biểu tượng cảm xúc"
 }
