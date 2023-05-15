@@ -119,8 +119,9 @@ onMounted(() => {
 <style lang="scss" scoped>
 .work-unit {
   width: 100%;
-  margin: 100px auto;
+  padding: 100px 0;
   text-align: center;
+  background-color: #d2d8de54;
 }
 .table {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
@@ -138,6 +139,7 @@ table {
   border-collapse: collapse;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
   tr {
     &:hover {
       background: #f4f4f4;
@@ -173,6 +175,9 @@ table {
   .action {
     display: flex;
     justify-content: center;
+    Button {
+      border: none;
+    }
   }
 }
 </style>

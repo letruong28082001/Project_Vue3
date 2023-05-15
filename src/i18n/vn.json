@@ -1,23 +1,54 @@
 {
-    "titleHedear":"ĐÀ NẴNG - THUÊ NGOÀI ( UIT DEPT)",
-    "sidebar":{
-        "Employee":"Nhân viên",
-        "WorkUnit":"Đơn vị công tác",
-        "JobPosition":"Vị trí công việc",
-        "EmployeesList":"Danh sách nhân viên",
-        "UploadEmployee":"Tải lên nhân viên",
-        "Supplier":"Nhà cung cấp",
-        "Logout":"Đăng xuất"
+    "titleHedear": "ĐÀ NẴNG - THUÊ NGOÀI ( UIT DEPT)",
+    "sidebar": {
+        "Employee": "Nhân viên",
+        "WorkUnit": "Đơn vị công tác",
+        "JobPosition": "Vị trí công việc",
+        "EmployeesList": "Danh sách nhân viên",
+        "UploadEmployee": "Tải lên nhân viên",
+        "Supplier": "Nhà cung cấp",
+        "Logout": "Đăng xuất"
     },
     "titleWorkUnit": {
-        "unitManagement": "Quản lý đơn vị",
-        "titleTable":{
-            "unitName":"TÊN ĐƠN VỊ TỔ CHỨC",
-            "unitcode":"MÃ ĐƠN VỊ TỔ CHỨC",
-            "unitAddress":"ĐỊA CHỈ"
+        "unitManagement": "QUẢN LÝ ĐƠN VỊ",
+        "titleTable": {
+            "unitName": "TÊN ĐƠN VỊ TỔ CHỨC",
+            "unitcode": "MÃ ĐƠN VỊ TỔ CHỨC",
+            "unitAddress": "ĐỊA CHỈ"
         }
     },
     "searchEmployee": {
         "search": "Tìm kiếm..."
-    }
+    },
+    "titleJobPosition": {
+        "jobManagement": "QUẢN LÝ VỊ TRÍ CÔNG VIỆC",
+        "titleTable": {
+            "jobCode": "MÃ",
+            "jobName": "TÊN VỊ TRÍ",
+            "jobPosition": "THUỘC ĐƠN VỊ",
+            "jobType": "LOẠI VỊ TRÍ"
+        }
+    },
+    "searchJob": {
+        "search": "Tìm kiếm..."
+    },
+    "addJobContent": {
+        "addJob": "Thêm công việc",
+        "title": "Thông tin vị trí công việc",
+        "codeJob": "Mã",
+        "nameJob": "Tên công việc",
+        "nameOther": "Tên Khác",
+        "typeJob": "Loại công việc",
+        "belongUnit": "Thuộc đơn vị",
+        "description": "Mô tả công việc",
+        "saveBtn": "Lưu"
+    },
+    "listMemberTittle":"Danh sách nhân viên theo vị trí",
+    "listMemberByJobPosition": {
+        "code": "Mã",
+        "fullName": "Tên",
+        "email": "Email",
+        "mobile": "Số điện thoại"
+    },
+    "validateEmoji": "Trường này không thể là biểu tượng cảm xúc"
 }
