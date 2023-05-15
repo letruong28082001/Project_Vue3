@@ -113,6 +113,7 @@ import { apiPath } from "@/constants/api-path";
 import { regexpUnicodeModified } from "@/constants/validate";
 import { validateNoEmoji } from "@/helpers/validateRegex";
 import { useI18n } from "vue-i18n";
+import { jobPosition } from "@/models/reactive";
 const { t } = useI18n();
 const emit = defineEmits(["valAddUpdate"]);
 
@@ -120,7 +121,7 @@ const props = defineProps(["addUpdateForm", "type"]);
 
 const jobs = ref([]);
 const unit_id = ref(null);
-const valueInputAdd: object = reactive({
+const valueInputAdd: jobPosition = reactive({
   job_position_code: "",
   job_position_name: "",
   job_position_category: "",
