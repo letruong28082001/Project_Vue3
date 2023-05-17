@@ -54,7 +54,7 @@
     "validateValid": "Value is required",
     "askDelete": "You definitely want to delete!",
     "listSupplier": {
-        "title": "Supplier",
+        "title": "SUPPLIER",
         "info": "Supplier infomation",
         "name": "Name",
         "items": "Name Item",

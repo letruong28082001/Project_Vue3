@@ -242,11 +242,6 @@ const HandleAddUpadteJob = async () => {
   padding: 15px 0 0 0;
   display: flex;
   justify-content: center;
-  Button {
-    width: 25%;
-    padding: 10px 0;
-    margin: 0;
-  }
 }
 .p-dialog .p-dialog-header {
   padding-bottom: 10px !important;

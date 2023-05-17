@@ -49,7 +49,9 @@
                   <span class="p-input-icon-left">
                     <i class="pi pi-search" />
                     <InputText
+                      class="inputSearch"
                       v-model="valueSearch"
+                      @input="debouncedFn"
                       :placeholder="$t('searchJob.search')"
                     />
                   </span>
@@ -65,7 +67,7 @@
                       rounded
                     />
                     <Button
-                      @click="() => confirm2(slotProps)"
+                      @click="() => confirmDelete(slotProps)"
                       type="button"
                       class="delete-supplier"
                       icon="pi pi-trash"
@@ -103,7 +105,7 @@
   </Dialog>
 </template>
 <script setup lang="ts">
-import { createApp, reactive, ref, watch, onMounted } from "vue";
+import { createApp, reactive, ref, onMounted } from "vue";
 import HeaderPage from "@/components/header/HeaderPage.vue";
 import SidebarPage from "@/components/nav/SideBar.vue";
 import HandleCommonSupplier from "@/views/supplier/HandleCommonSupplier.vue";
@@ -118,6 +120,8 @@ import { apiPath } from "@/constants/api-path";
 import { useConfirm } from "primevue/useconfirm";
 import LoadTable from "@/components/Loading/LoadTable.vue";
 import store from "@/store/index";
+import { useDebounceFn } from "@vueuse/core";
+import { Supplier } from "@/models/supplier";
 
 const confirm = useConfirm();
 const app = createApp({});
@@ -130,19 +134,16 @@ const suppliers = ref([]);
 const valueSearch = ref("");
 const type = ref("add");
 const data = ref({});
-
-console.log();
-
-const valueInputAddUpdate = reactive<object>({
+const valueInputAddUpdate: Supplier = reactive({
   name: "",
   items: "",
   address: "",
   contact: "",
-  priority: "",
+  priority: 0,
   description: "",
 });
 
-const confirm2 = (id: any) => {
+const confirmDelete = (id: any) => {
   confirm.require({
     message: "Do you want to delete this record?",
     header: "Delete Confirmation",
@@ -153,58 +154,47 @@ const confirm2 = (id: any) => {
     },
   });
 };
+
+const debouncedFn = useDebounceFn(() => {
+  getDataSupplier({
+    page: 1,
+    limit: 100,
+    keyword: valueSearch.value,
+  });
+}, 1000);
+
 function handleAddUpdateSupplier() {
   valOpenClose.value = !valOpenClose.value;
   valueInputAddUpdate.name = "";
   valueInputAddUpdate.items = "";
   valueInputAddUpdate.address = "";
   valueInputAddUpdate.contact = "";
-  valueInputAddUpdate.priority = "";
+  valueInputAddUpdate.priority = 0;
   valueInputAddUpdate.description = "";
   type.value = "add";
 }
-function getDataSupplier() {
+function getDataSupplier(params: {
+  page: number;
+  limit: number;
+  keyword?: string;
+}) {
   store.dispatch("setLoading", true);
-  setTimeout(() => {
-    axiosService
-      .get(apiPath.apiSupplier, {
-        params: {
-          page: 1,
-          limit: 100,
-        },
-      })
-      .then((res) => {
-        suppliers.value = res.data.response.data;
-        store.dispatch("setLoading", false);
-      })
-      .catch((error) => {
-        suppliers.value = [];
-      });
-  }, 1000);
+  axiosService
+    .get(apiPath.apiSupplier, {
+      params,
+    })
+    .then((res) => {
+      suppliers.value = res.data.response.data;
+      store.dispatch("setLoading", false);
+    })
+
+    .catch((error) => {
+      suppliers.value = [];
+    });
 }
 
 onMounted(() => {
-  getDataSupplier();
-});
-watch(valueSearch, () => {
-  store.dispatch("setLoading", true);
-  setTimeout(() => {
-    axiosService
-      .get(apiPath.apiSupplier, {
-        params: {
-          page: 1,
-          limit: 100,
-          keyword: valueSearch.value,
-        },
-      })
-      .then((res) => {
-        suppliers.value = res.data.response.data;
-        store.dispatch("setLoading", false);
-      })
-      .catch((error) => {
-        suppliers.value = [];
-      });
-  }, 1000);
+  getDataSupplier({ page: 1, limit: 100 });
 });
 
 function deleteSupplier(id: object) {
@@ -213,7 +203,7 @@ function deleteSupplier(id: object) {
       ids: [id.data.distributor_id],
     })
     .then((res) => {
-      getDataSupplier();
+      getDataSupplier({ page: 1, limit: 100 });
     });
 }
 
@@ -223,7 +213,7 @@ function toggleBtn() {
 
 function toggleDialogAddUpdate(check: boolean) {
   valOpenClose.value = check;
-  getDataSupplier();
+  getDataSupplier({ page: 1, limit: 100 });
 }
 
 const idSupplier = ref("");
@@ -245,11 +235,15 @@ function openUpdateForm(slotProps: any) {
 function openAddForm() {
   valOpenClose.value = true;
   type.value = "add";
+  resetForm();
+}
+
+function resetForm() {
   valueInputAddUpdate.name = "";
   valueInputAddUpdate.items = "";
   valueInputAddUpdate.address = "";
   valueInputAddUpdate.contact = "";
-  valueInputAddUpdate.priority = "";
+  valueInputAddUpdate.priority = 0;
   valueInputAddUpdate.description = "";
 }
 </script>
@@ -259,6 +253,9 @@ function openAddForm() {
   padding: 100px 0;
   text-align: center;
   background-color: #d2d8de54;
+  .inputSearch {
+    border-radius: 25px;
+  }
   .btn-add-supplier {
     display: flex;
     justify-content: end;
@@ -306,11 +303,6 @@ function openAddForm() {
   padding: 15px 0 0 0;
   display: flex;
   justify-content: center;
-  Button {
-    width: 25%;
-    padding: 10px 0;
-    margin: 0;
-  }
 }
 .loadingWaitApi {
   margin: 0 auto;

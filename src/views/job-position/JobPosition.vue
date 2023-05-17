@@ -50,6 +50,7 @@
                   <span class="p-input-icon-left">
                     <i class="pi pi-search" />
                     <InputText
+                      class="inputSearch"
                       v-model="valueSearch"
                       :placeholder="$t('searchJob.search')"
                     />
@@ -189,22 +190,20 @@ onMounted(() => {
 });
 function getDataJobPosition() {
   store.dispatch("setLoading", true);
-  setTimeout(() => {
-    axiosService
-      .get(apiPath.apiJobPosition, {
-        params: {
-          page: 1,
-          limit: 100,
-        },
-      })
-      .then((res) => {
-        jobs.value = res.data.response.data;
-        store.dispatch("setLoading", false);
-      })
-      .catch((error) => {
-        jobs.value = [];
-      });
-  }, 2000);
+  axiosService
+    .get(apiPath.apiJobPosition, {
+      params: {
+        page: 1,
+        limit: 100,
+      },
+    })
+    .then((res) => {
+      jobs.value = res.data.response.data;
+      store.dispatch("setLoading", false);
+    })
+    .catch((error) => {
+      jobs.value = [];
+    });
 }
 watch(valueSearch, () => {
   axiosService
@@ -268,6 +267,9 @@ function addJob() {
   padding: 100px 0;
   text-align: center;
   background-color: #d2d8de54;
+  .inputSearch {
+    border-radius: 25px;
+  }
   .btn-container-add-job {
     display: flex;
     justify-content: end;
@@ -359,11 +361,6 @@ function addJob() {
   padding: 15px 0 0 0;
   display: flex;
   justify-content: center;
-  Button {
-    width: 25%;
-    padding: 10px 0;
-    margin: 0;
-  }
 }
 .p-dialog .p-dialog-header {
   padding-bottom: 10px !important;
