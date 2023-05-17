@@ -50,5 +50,19 @@
         "email":"이메일",
         "mobile":"휴대전화"
     },
-    "validateEmoji": "이 필드는 그림 이모티콘일 수 없습니다"
+    "validateEmoji": "이 필드는 그림 이모티콘일 수 없습니다",
+    "validateValid": "요청된 값",
+    "askDelete": "당신은 확실히 삭제하고 싶습니다!",
+    "listSupplier": {
+        "title": "공급자",
+        "info": "공급자 정보",
+        "name": "이름",
+        "items": "아이템 이름 지정",
+        "address": "주소",
+        "contact": "연락처",
+        "priority": "우선 순위",
+        "description": "설명",
+        "saveBtn": "저장",
+        "addBtn": "템모이"
+    }
 }

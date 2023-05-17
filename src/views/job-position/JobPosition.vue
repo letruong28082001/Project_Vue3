@@ -76,6 +76,11 @@
                   </div>
                 </template>
               </Column>
+              <template v-if="store.getters.load" #empty>
+                <div class="loadingWaitApi">
+                  <LoadTable></LoadTable>
+                </div>
+              </template>
             </DataTable>
           </div>
         </div>
@@ -124,17 +129,19 @@
   </Dialog>
 </template>
 <script setup lang="ts">
-import { createApp, reactive, ref, watch, watchEffect } from "vue";
+import { createApp, reactive, ref, watch, onMounted } from "vue";
 import HeaderPage from "@/components/header/HeaderPage.vue";
 import SidebarPage from "@/components/nav/SideBar.vue";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Button from "primevue/button";
+import LoadTable from "@/components/Loading/LoadTable.vue";
 import Dialog from "primevue/dialog";
 import InputText from "primevue/inputtext";
 import { axiosService } from "@/services/axios/axios";
 import { apiPath } from "@/constants/api-path";
-import AddJobPosition from "./AddJobPosition";
+import AddJobPosition from "@/views/job-position/AddJobPosition.vue";
+import store from "@/store/index";
 const app = createApp({});
 app.component("HeaderPage", HeaderPage);
 app.component("SidebarPage", SidebarPage);
@@ -177,25 +184,27 @@ function toggleDialogAddUpdate(check: boolean) {
   valAddForm.value = check;
   getDataJobPosition();
 }
-
-watchEffect(() => {
+onMounted(() => {
   getDataJobPosition();
 });
-
 function getDataJobPosition() {
-  axiosService
-    .get(apiPath.apiJobPosition, {
-      params: {
-        page: 1,
-        limit: 100,
-      },
-    })
-    .then((res) => {
-      jobs.value = res.data.response.data;
-    })
-    .catch((error) => {
-      jobs.value = [];
-    });
+  store.dispatch("setLoading", true);
+  setTimeout(() => {
+    axiosService
+      .get(apiPath.apiJobPosition, {
+        params: {
+          page: 1,
+          limit: 100,
+        },
+      })
+      .then((res) => {
+        jobs.value = res.data.response.data;
+        store.dispatch("setLoading", false);
+      })
+      .catch((error) => {
+        jobs.value = [];
+      });
+  }, 2000);
 }
 watch(valueSearch, () => {
   axiosService
@@ -262,7 +271,7 @@ function addJob() {
   .btn-container-add-job {
     display: flex;
     justify-content: end;
-    padding-right: 10%;
+    padding-right: 5%;
     margin-bottom: -30px;
     .btn_add-Job {
       background-color: #1cc243;
@@ -279,7 +288,7 @@ function addJob() {
     .table {
       margin-top: 50px;
     }
-    width: 80%;
+    width: 90%;
     background-color: #fff;
     font-family: "Arial";
     margin: 0px auto;
@@ -377,5 +386,11 @@ div span {
     box-shadow: none;
     border: none;
   }
+}
+.loadingWaitApi {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 </style>

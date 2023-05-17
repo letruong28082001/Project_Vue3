@@ -50,5 +50,19 @@
         "email":"Email",
         "mobile":"Mobile Phone"
     },
-    "validateEmoji": "This field cannot be emoji"
+    "validateEmoji": "This field cannot be emoji",
+    "validateValid": "Value is required",
+    "askDelete": "You definitely want to delete!",
+    "listSupplier": {
+        "title": "Supplier",
+        "info": "Supplier infomation",
+        "name": "Name",
+        "items": "Name Item",
+        "address": "Address",
+        "contact": "Contact",
+        "priority": "Priority",
+        "description": "Description",
+        "saveBtn": "Save",
+        "addBtn": "Add new"
+    }
 }

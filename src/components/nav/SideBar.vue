@@ -37,7 +37,7 @@
         <span class="material-symbols-outlined"> upload_file </span>
         <span class="text">{{ $t("sidebar.UploadEmployee") }}</span>
       </router-link>
-      <router-link class="button" to="/Home">
+      <router-link class="button" :to="{ name: 'Supplier' }">
         <span class="material-symbols-outlined">Home</span>
         <span class="text">{{ $t("sidebar.Supplier") }}</span>
       </router-link>

@@ -3,6 +3,7 @@ import employeeList from "@/views/employee/employee-list.vue";
 import Login from "../views/auth/LoginPage.vue";
 import workUnit from "../views/work-unit/WorkUnit.vue";
 import JobPosition from "@/views/job-position/JobPosition.vue";
+import Supplier from "@/views/supplier/SuppplierPage.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -23,6 +24,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/job-position",
     name: "JobPosition",
     component: JobPosition,
+  },
+  {
+    path: "/supplier",
+    name: "Supplier",
+    component: Supplier,
   },
 ];
 

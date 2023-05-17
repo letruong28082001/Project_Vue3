@@ -50,5 +50,19 @@
         "email": "Email",
         "mobile": "Số điện thoại"
     },
-    "validateEmoji": "Trường này không thể là biểu tượng cảm xúc"
+    "validateEmoji": "Trường này không thể là biểu tượng cảm xúc",
+    "validateValid": "Giá trị bắt buộc",
+    "askDelete": "Bạn chắc chắn muốn xóa!",
+    "listSupplier": {
+        "title": "Nhà Cung Cấp",
+        "info": "Thông tin nhà cung cấp",
+        "name": "Tên",
+        "items": "Tên mặt hàng",
+        "address": "Địa chỉ",
+        "contact": "Thông tin liên lạc",
+        "priority": "Sự ưu tiên",
+        "description": "Mô tả",
+        "saveBtn": "Lưu",
+        "addBtn": "Thêm mới"
+    }
 }
