@@ -1,5 +1,5 @@
 {
-    "titleHedear":"다낭 아웃소싱 (UIT 부서)",
+    "titleHedear": "다낭 아웃소싱 (UIT 부서)",
     "sidebar": {
         "Employee": "직원",
         "WorkUnit": "작업 단위",
@@ -8,6 +8,14 @@
         "UploadEmployee": "직원 업로드",
         "Supplier": "공급자",
         "Logout": "로그 아웃"
+    },
+    "teamMember": {
+        "titlte": "직원 목록",
+        "name": "이름",
+        "Email": "이메일",
+        "phoneNumber": "전화번호",
+        "code": "직원 코드",
+        "notification": "데이터 없음"
     },
     "titleWorkUnit": {
         "unitManagement": "단위 관리",
@@ -41,14 +49,15 @@
         "typeJob": "작업 입력",
         "belongUnit": "단위에 속함",
         "description": "설명 작업",
-        "saveBtn": "구하다"
+        "saveBtn": "구하다",
+        "selectItem": "항목 선택"
     },
-    "listMemberTittle":"위치별 직원 목록",
-    "listMemberByJobPosition":{
-        "code":"암호",
-        "fullName":"이름",
-        "email":"이메일",
-        "mobile":"휴대전화"
+    "listMemberTittle": "위치별 직원 목록",
+    "listMemberByJobPosition": {
+        "code": "암호",
+        "fullName": "이름",
+        "email": "이메일",
+        "mobile": "휴대전화"
     },
     "validateEmoji": "이 필드는 그림 이모티콘일 수 없습니다",
     "validateValid": "요청된 값",

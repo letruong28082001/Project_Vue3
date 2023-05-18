@@ -6,11 +6,25 @@ const axiosService = axios.create({
   },
 });
 
+export function sleep(ms = 0): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 axiosService.interceptors.request.use(
   function (config) {
     const token = localStorage.getItem("token");
     config.headers.Authorization = "Bearer " + token;
     return config;
+  },
+  function (error) {
+    return Promise.reject(error);
+  }
+);
+
+axiosService.interceptors.response.use(
+  async function (response) {
+    await sleep();
+    return response;
   },
   function (error) {
     return Promise.reject(error);

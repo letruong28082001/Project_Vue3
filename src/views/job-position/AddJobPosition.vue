@@ -67,7 +67,7 @@
       <tree-select
         v-model="valueInputAdd.organization_unit_id"
         :options="unit_id"
-        placeholder="Select item"
+        :placeholder="$t('addJobContent.selectItem')"
       />
       <span class="error">
         {{ v$.organization_unit_id.$errors[0]?.$message }}
@@ -89,7 +89,11 @@
       </span>
     </div>
     <div class="btn">
-      <Button type="submit" :label="$t('addJobContent.saveBtn')" rounded />
+      <Button
+        type="submit"
+        :label="$t('addJobContent.saveBtn')"
+        :loading="valWaitApi"
+      />
     </div>
   </form>
 </template>
@@ -116,8 +120,8 @@ import { useI18n } from "vue-i18n";
 import { JobPosition } from "@/models/jobPosition";
 const { t } = useI18n();
 const emit = defineEmits(["valAddUpdate"]);
-
 const props = defineProps(["addUpdateForm", "type"]);
+const valWaitApi = ref(false);
 
 const jobs = ref([]);
 const unit_id = ref(null);
@@ -210,16 +214,21 @@ const HandleAddUpadteJob = async () => {
       organization_unit_id: Object.keys(valueInputAdd.organization_unit_id)[0],
     };
     if (props.type === "add") {
+      valWaitApi.value = true;
       axiosService.post(apiPath.apiJobPosition, { ...data }).then((res) => {
         emit("valAddUpdate", false);
+        valWaitApi.value = false;
       });
     } else {
+      valWaitApi.value = true;
+
       axiosService
         .patch(apiPath.apiJobPosition + "/" + valueInputAdd.job_position_id, {
           ...data,
         })
         .then((res) => {
           emit("valAddUpdate", false);
+          valWaitApi.value = false;
         });
     }
   }
@@ -239,13 +248,12 @@ const HandleAddUpadteJob = async () => {
   }
 }
 .btn {
-  padding: 15px 0 0 0;
+  padding: 0;
   display: flex;
   justify-content: center;
-  Button {
+  margin-top: 20px;
+  button {
     width: 25%;
-    padding: 10px 0;
-    margin: 0;
   }
 }
 .p-dialog .p-dialog-header {
@@ -275,5 +283,11 @@ div span {
   font-size: 14px;
   color: red;
   font-weight: 700;
+}
+.loadingWaitApi {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 </style>

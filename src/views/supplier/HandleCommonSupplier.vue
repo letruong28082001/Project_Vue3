@@ -82,7 +82,11 @@
       </span>
     </div>
     <div class="btn">
-      <Button type="submit" :label="$t('addJobContent.saveBtn')" rounded />
+      <Button
+        :loading="loadingWaitApi"
+        type="submit"
+        :label="$t('addJobContent.saveBtn')"
+      />
     </div>
   </form>
 </template>
@@ -103,8 +107,10 @@ import { apiPath } from "@/constants/api-path";
 import { validateNoEmoji } from "@/helpers/validateRegex";
 import { useI18n } from "vue-i18n";
 import { Supplier } from "@/models/supplier";
-import { maxLength, required, helpers } from "@vuelidate/validators";
+import { maxLength, required, helpers, numeric } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
+
+const loadingWaitApi = ref(false);
 const { t } = useI18n();
 const emit = defineEmits(["valAddUpdate"]);
 const props = defineProps(["addUpdateForm", "type", "idSupplier"]);
@@ -132,6 +138,7 @@ const validateForm = computed(() => {
     },
     priority: {
       required,
+      numeric,
       maxLength: maxLength(100),
       emoji: helpers.withMessage(t("validateEmoji"), validateNoEmoji),
     },
@@ -143,14 +150,12 @@ const validateForm = computed(() => {
   };
 });
 
-// const result = await v$.value.$validate();
-
 const valueInput: Supplier = reactive({
   name: "",
   items: "",
   address: "",
   contact: "",
-  priority: "",
+  priority: 0,
   description: "",
   ...props.addUpdateForm,
 });
@@ -165,18 +170,22 @@ const handleAddUpdateMethodSupplier = async () => {
       items: valueInput.items,
       address: valueInput.address,
       contact: valueInput.contact,
-      priority: Number(valueInput.priority),
+      priority: valueInput.priority,
       description: valueInput.description,
     });
     if (props.type === "add") {
+      loadingWaitApi.value = true;
       axiosService.post(apiPath.apiAddSupplier, data).then((res) => {
         emit("valAddUpdate", false);
+        loadingWaitApi.value = false;
       });
     } else {
+      loadingWaitApi.value = true;
       axiosService
         .patch(apiPath.apiAddSupplier + "/" + props.idSupplier, data)
         .then((res) => {
           emit("valAddUpdate", false);
+          loadingWaitApi.value = false;
         });
     }
   }
@@ -184,17 +193,20 @@ const handleAddUpdateMethodSupplier = async () => {
 </script>
 <style lang="scss" scoped>
 .p-component * {
+  input {
+    width: 100%;
+  }
+  button {
+    width: 25%;
+  }
+}
+.p-component * {
   width: 100%;
 }
 
 .p-inputtext {
   height: 30px;
   margin: 5px 0;
-}
-
-.btn {
-  width: 100px;
-  margin: 0 auto;
 }
 .input-first {
   margin-top: 15px;

@@ -40,7 +40,7 @@
           </div>
         </template>
       </Dropdown>
-      <img src="../../assets/imgs/user.jpg" alt="" />
+      <img src="../../assets/images/user.jpg" alt="" />
     </div>
   </div>
 </template>
@@ -79,6 +79,7 @@ watch(selectedLanguage, () => {
     width: 20px;
     height: 20px;
     border-radius: 0;
+    object-fit: contain;
   }
   img {
     width: 3rem;
@@ -105,5 +106,6 @@ watch(selectedLanguage, () => {
 .option-img {
   width: 20px;
   display: flex;
+  object-fit: contain;
 }
 </style>

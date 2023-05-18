@@ -6,4 +6,5 @@ export const apiPath = {
   apiSupplier: "/distributors",
   apiDeleteSupplier: "/distributors/delete",
   apiAddSupplier: "/distributors",
+  apiGetEmployee: "/users/my-colleagues",
 };

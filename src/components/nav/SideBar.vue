@@ -4,7 +4,7 @@
     @click="emit('ToggleMenu', is_expanded)"
   >
     <div class="logo">
-      <img src="../../assets/imgs/user.jpg" alt="Vue" />
+      <img src="../../assets/images/user.jpg" alt="Vue" />
       <h1>HRM</h1>
     </div>
 

@@ -52,7 +52,7 @@
   <Dialog
     v-model:visible="visible"
     modal
-    header="Danh sách nhân viên"
+    :header="$t('teamMember.titlte')"
     :style="{ width: '70vw' }"
     ><list-member :id="organization_unit_id" />
   </Dialog>
