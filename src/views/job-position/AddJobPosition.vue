@@ -27,7 +27,7 @@
         aria-describedby="username-help"
       />
       <span class="error">
-        {{ v$.job_position_code.$errors[0]?.$message }}
+        {{ v$.job_position_name.$errors[0]?.$message }}
       </span>
     </div>
     <div class="input flex flex-column gap-2">
@@ -41,7 +41,7 @@
         aria-describedby="username-help"
       />
       <span class="error">
-        {{ v$.job_position_code.$errors[0]?.$message }}
+        {{ v$.job_position_category.$errors[0]?.$message }}
       </span>
     </div>
     <div class="input flex flex-column gap-2">
@@ -55,7 +55,7 @@
         aria-describedby="username-help"
       />
       <span class="error">
-        {{ v$.job_position_code.$errors[0]?.$message }}
+        {{ v$.job_position_other_name.$errors[0]?.$message }}
       </span>
     </div>
     <div class="input flex flex-column gap-2">
@@ -70,7 +70,7 @@
         placeholder="Select item"
       />
       <span class="error">
-        {{ v$.job_position_code.$errors[0]?.$message }}
+        {{ v$.organization_unit_id.$errors[0]?.$message }}
       </span>
     </div>
     <div class="input flex flex-column gap-2">
@@ -85,7 +85,7 @@
         aria-describedby="username-help"
       />
       <span class="error">
-        {{ v$.job_position_code.$errors[0]?.$message }}
+        {{ v$.description.$errors[0]?.$message }}
       </span>
     </div>
     <div class="btn">

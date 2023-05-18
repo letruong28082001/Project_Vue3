@@ -9,7 +9,7 @@
           <div
             class="card"
             style="
-              width: 85%;
+              width: 90%;
               display: flex;
               justify-content: center;
               text-align: center;
@@ -132,7 +132,7 @@ onMounted(() => {
   }
 }
 table {
-  width: 80%;
+  width: 100%;
   background-color: #fff;
   font-family: "Arial";
   margin: 25px auto;

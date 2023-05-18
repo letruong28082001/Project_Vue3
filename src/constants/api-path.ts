@@ -3,4 +3,7 @@ export const apiPath = {
   apiMemberWorkUnit: "/members",
   apiJobPosition: "/job-positions",
   apiMemberbyJobPosition: "/users",
+  apiSupplier: "/distributors",
+  apiDeleteSupplier: "/distributors/delete",
+  apiAddSupplier: "/distributors",
 };
