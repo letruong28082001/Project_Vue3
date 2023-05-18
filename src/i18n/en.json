@@ -49,7 +49,8 @@
         "typeJob": "Type Job",
         "belongUnit": "Belonging to the unit",
         "description": "Description Job",
-        "saveBtn": "Save"
+        "saveBtn": "Save",
+        "selectItem": "Select item"
     },
     "listMemberTittle":"List of employees by location",
     "listMemberByJobPosition":{

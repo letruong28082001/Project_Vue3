@@ -67,7 +67,7 @@
       <tree-select
         v-model="valueInputAdd.organization_unit_id"
         :options="unit_id"
-        placeholder="Select item"
+        :placeholder="$t('addJobContent.selectItem')"
       />
       <span class="error">
         {{ v$.organization_unit_id.$errors[0]?.$message }}
