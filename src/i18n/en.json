@@ -9,6 +9,14 @@
         "Supplier": "Supplier",
         "Logout": "Logout"
     },
+    "teamMember":{
+        "titlte":"List of employees",
+        "name": "Name",
+        "Email": "Email",
+        "phoneNumber":"Phone number",
+        "code":"Employee code",
+        "notification":"No data"
+    },
     "titleWorkUnit": {
         "unitManagement": "UNIT MANAGEMENT",
         "titleTable": {

@@ -77,9 +77,15 @@
                   </div>
                 </template>
               </Column>
-              <template v-if="store.getters.load" #empty>
+              <template #empty>
                 <div class="loadingWaitApi">
-                  <LoadTable></LoadTable>
+                  <LoadTable v-if="store.getters.load"></LoadTable>
+                  <div
+                    style="text-align: center"
+                    v-if="store.getters.load === false"
+                  >
+                    {{ $t("teamMember.notification") }}
+                  </div>
                 </div>
               </template>
             </DataTable>
@@ -95,7 +101,7 @@
     :style="{ width: '50vw' }"
     :breakpoints="{ '960px': '75vw', '641px': '100vw' }"
   >
-    <DataTable :value="member" paginator :rows="5">
+    <DataTable :value="member" :paginator="member.length > 0" :rows="5">
       <Column
         field="employee_code"
         :header="`${$t('listMemberByJobPosition.code')}`"
@@ -112,6 +118,11 @@
         field="mobile"
         :header="`${$t('listMemberByJobPosition.mobile')}`"
       ></Column>
+      <template #empty v-if="member.length === 0">
+        <div style="text-align: center">
+          {{ $t("teamMember.notification") }}
+        </div>
+      </template>
     </DataTable>
   </Dialog>
   <Dialog
@@ -275,6 +286,7 @@ function addJob() {
     justify-content: end;
     padding-right: 5%;
     margin-bottom: -30px;
+    padding: 15px 5% 5px 0;
     .btn_add-Job {
       background-color: #1cc243;
       border: none;
@@ -357,11 +369,11 @@ function addJob() {
     margin-top: 3px;
   }
 }
-.btn {
-  padding: 15px 0 0 0;
-  display: flex;
-  justify-content: center;
-}
+// .btn {
+//   padding: 15px 0 0 0;
+//   display: flex;
+//   justify-content: center;
+// }
 .p-dialog .p-dialog-header {
   padding-bottom: 10px !important;
 }

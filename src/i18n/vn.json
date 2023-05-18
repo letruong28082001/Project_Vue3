@@ -9,6 +9,14 @@
         "Supplier": "Nhà cung cấp",
         "Logout": "Đăng xuất"
     },
+    "teamMember":{
+        "titlte":"Danh sách nhân viên",
+        "name": "Tên",
+        "Email":"Email",
+        "phoneNumber":"Số điện thoại",
+        "code":"Mã nhân viên",
+        "notification":"Không có dữ liệu"
+    },
     "titleWorkUnit": {
         "unitManagement": "QUẢN LÝ ĐƠN VỊ",
         "titleTable": {
@@ -41,7 +49,8 @@
         "typeJob": "Loại công việc",
         "belongUnit": "Thuộc đơn vị",
         "description": "Mô tả công việc",
-        "saveBtn": "Lưu"
+        "saveBtn": "Lưu",
+        "selectItem": "Chọn mục"
     },
     "listMemberTittle":"Danh sách nhân viên theo vị trí",
     "listMemberByJobPosition": {

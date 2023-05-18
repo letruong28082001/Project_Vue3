@@ -76,9 +76,15 @@
                   </div>
                 </template>
               </Column>
-              <template v-if="store.getters.load" #empty>
+              <template #empty>
                 <div class="loadingWaitApi">
-                  <LoadTable></LoadTable>
+                  <LoadTable v-if="store.getters.load"></LoadTable>
+                  <div
+                    style="text-align: center"
+                    v-if="store.getters.load === false"
+                  >
+                    {{ $t("teamMember.notification") }}
+                  </div>
                 </div>
               </template>
             </DataTable>
