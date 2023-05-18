@@ -40,7 +40,7 @@
           </div>
         </template>
       </Dropdown>
-      <img src="../../assets/imgs/user.jpg" alt="" />
+      <img src="../../assets/images/user.jpg" alt="" />
     </div>
   </div>
 </template>
